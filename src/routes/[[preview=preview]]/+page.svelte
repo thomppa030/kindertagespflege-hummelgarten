@@ -8,55 +8,78 @@
 	import { fade, fly } from 'svelte/transition';
 
 	export let data;
-	
+
 	$: pageData = data.page.data;
-	
+
 	let visible = false;
 	let sections = [];
-	
+
 	// Gallery images
 	const galleryImages = [
-		{ src: '/PicturesHome/20250415_100440.jpg', alt: 'Kinder beim Spielen im Garten', caption: 'Gemeinsam im Garten' },
+		{
+			src: '/PicturesHome/20250415_100440.jpg',
+			alt: 'Kinder beim Spielen im Garten',
+			caption: 'Gemeinsam im Garten'
+		},
 		{ src: '/PicturesHome/20250429_100707.jpg', alt: 'Kreatives Basteln', caption: 'Kreativzeit' },
-		{ src: '/PicturesHome/20250430_090229.jpg', alt: 'Naturentdeckungen', caption: 'Naturentdeckungen' },
+		{
+			src: '/PicturesHome/20250430_090229.jpg',
+			alt: 'Naturentdeckungen',
+			caption: 'Naturentdeckungen'
+		},
 		{ src: '/PicturesHome/20250430_090247.jpg', alt: 'Spielzeit drinnen', caption: 'Spielzeit' },
-		{ src: '/PicturesHome/20250514_094452.jpg', alt: 'Gemeinsames Lernen', caption: 'Lernen mit Freude' },
+		{
+			src: '/PicturesHome/20250514_094452.jpg',
+			alt: 'Gemeinsames Lernen',
+			caption: 'Lernen mit Freude'
+		},
 		{ src: '/PicturesHome/20250514_094537(0).jpg', alt: 'Gartenzeit', caption: 'Unser Garten' },
-		{ src: '/PicturesHome/20250514_094803.jpg', alt: 'Draußen aktiv', caption: 'Bewegung im Freien' },
-		{ src: '/PicturesHome/IMG-20250429-WA0017.jpg', alt: 'Fröhliche Momente', caption: 'Glückliche Kinder' }
+		{
+			src: '/PicturesHome/20250514_094803.jpg',
+			alt: 'Draußen aktiv',
+			caption: 'Bewegung im Freien'
+		},
+		{
+			src: '/PicturesHome/IMG-20250429-WA0017.jpg',
+			alt: 'Fröhliche Momente',
+			caption: 'Glückliche Kinder'
+		}
 	];
-	
+
 	onMount(() => {
 		visible = true;
-		
+
 		const observer = new IntersectionObserver(
 			(entries) => {
-				entries.forEach(entry => {
+				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						entry.target.classList.add('visible');
 					}
 				});
 			},
-			{ 
+			{
 				threshold: 0.01,
 				rootMargin: '50px'
 			}
 		);
-		
+
 		setTimeout(() => {
 			sections = document.querySelectorAll('.home-section');
-			sections.forEach(section => observer.observe(section));
+			sections.forEach((section) => observer.observe(section));
 		}, 100);
-		
+
 		return () => {
-			sections.forEach(section => observer.unobserve(section));
+			sections.forEach((section) => observer.unobserve(section));
 		};
 	});
 </script>
 
 <svelte:head>
 	<title>Kindertagespflege Hummelgarten - Liebevolle Betreuung in Oranienburg</title>
-	<meta name="description" content="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr." />
+	<meta
+		name="description"
+		content="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
+	/>
 </svelte:head>
 
 <FloatingBanner />
@@ -67,7 +90,7 @@
 		<div class="hero-content" in:fade={{ duration: 800 }}>
 			<div class="hero-text">
 				<h1 class="hero-title">
-					Willkommen im 
+					Willkommen im
 					<span class="highlight">Hummelgarten</span>
 				</h1>
 				<p class="hero-subtitle">
@@ -76,23 +99,44 @@
 				</p>
 				<div class="hero-features">
 					<span class="feature-badge">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-							<polyline points="22 4 12 14.01 9 11.01"/>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+							<polyline points="22 4 12 14.01 9 11.01" />
 						</svg>
 						Bis zu 5 Kinder
 					</span>
 					<span class="feature-badge">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-							<polyline points="22 4 12 14.01 9 11.01"/>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+							<polyline points="22 4 12 14.01 9 11.01" />
 						</svg>
 						Eigener Garten
 					</span>
 					<span class="feature-badge">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-							<polyline points="22 4 12 14.01 9 11.01"/>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+							<polyline points="22 4 12 14.01 9 11.01" />
 						</svg>
 						Waldnähe
 					</span>
@@ -105,13 +149,18 @@
 			<div class="hero-image">
 				<div class="image-decoration">
 					<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-						<path fill="#8CC152" fill-opacity="0.15" d="M47.5,-65.2C60.2,-56.8,68.1,-41.1,71.3,-24.8C74.5,-8.5,73,8.4,67.3,23.2C61.6,38,51.7,50.7,38.8,59.1C25.9,67.5,10,71.6,-6.9,69.9C-23.8,68.2,-41.7,60.7,-54.6,48.9C-67.5,37.1,-75.4,21,-76.3,4.3C-77.2,-12.4,-71.1,-29.8,-60.4,-43.1C-49.7,-56.4,-34.4,-65.6,-18.5,-68.5C-2.6,-71.4,13.9,-68,26.8,-60.2C39.7,-52.4,48.9,-40.3,47.5,-65.2Z" transform="translate(100 100)" />
+						<path
+							fill="#8CC152"
+							fill-opacity="0.15"
+							d="M47.5,-65.2C60.2,-56.8,68.1,-41.1,71.3,-24.8C74.5,-8.5,73,8.4,67.3,23.2C61.6,38,51.7,50.7,38.8,59.1C25.9,67.5,10,71.6,-6.9,69.9C-23.8,68.2,-41.7,60.7,-54.6,48.9C-67.5,37.1,-75.4,21,-76.3,4.3C-77.2,-12.4,-71.1,-29.8,-60.4,-43.1C-49.7,-56.4,-34.4,-65.6,-18.5,-68.5C-2.6,-71.4,13.9,-68,26.8,-60.2C39.7,-52.4,48.9,-40.3,47.5,-65.2Z"
+							transform="translate(100 100)"
+						/>
 					</svg>
 				</div>
 				<!-- Placeholder for image -->
 				<div class="hero-image-container">
-					<img 
-						src="/PicturesHome/20250514_094452.jpg" 
+					<img
+						src="/PicturesHome/20250514_094452.jpg"
 						alt="Kinder spielen im Hummelgarten"
 						class="hero-main-image"
 					/>
@@ -136,24 +185,32 @@
 		<h2 class="section-title">Was macht uns besonders?</h2>
 		<div class="features-grid">
 			<div class="feature-card">
-				<div class="feature-icon">🏡</div>
 				<h3>Familiäre Atmosphäre</h3>
-				<p>In unserem liebevoll eingerichteten Erdgeschoss fühlen sich Kinder wie zu Hause. Mit eigenem Spielzimmer, Ruheraum und direktem Gartenzugang.</p>
+				<p>
+					In unserem liebevoll eingerichteten Erdgeschoss fühlen sich Kinder wie zu Hause. Mit
+					eigenem Spielzimmer, Ruheraum und direktem Gartenzugang.
+				</p>
 			</div>
 			<div class="feature-card">
-				<div class="feature-icon">🌱</div>
 				<h3>Naturverbunden</h3>
-				<p>Unser großer Garten lädt zum Entdecken ein. Gemeinsam säen, pflegen und ernten wir - vom Samenkorn bis zur selbstgekochten Suppe.</p>
+				<p>
+					Unser großer Garten lädt zum Entdecken ein. Gemeinsam säen, pflegen und ernten wir - vom
+					Samenkorn bis zur selbstgekochten Suppe.
+				</p>
 			</div>
 			<div class="feature-card">
-				<div class="feature-icon">🐾</div>
 				<h3>Tiergestützte Pädagogik</h3>
-				<p>Unser Hund Dio und Katze Kelly begleiten den Alltag. Kinder lernen respektvollen Umgang und entwickeln Empathie.</p>
+				<p>
+					Unser Hund Dio und Katze Kelly begleiten den Alltag. Kinder lernen respektvollen Umgang
+					und entwickeln Empathie.
+				</p>
 			</div>
 			<div class="feature-card">
-				<div class="feature-icon">🌲</div>
 				<h3>Waldabenteuer</h3>
-				<p>Das Lindsche Luch liegt direkt vor der Tür. Mit dem Krippenwagen erkunden wir regelmäßig Wald und Wiesen.</p>
+				<p>
+					Das Lindsche Luch liegt direkt vor der Tür. Mit dem Krippenwagen erkunden wir regelmäßig
+					Wald und Wiesen.
+				</p>
 			</div>
 		</div>
 	</div>
@@ -166,7 +223,8 @@
 			<div class="rhythm-text">
 				<h2>Ein Tag bei uns</h2>
 				<p class="rhythm-intro">
-					Strukturierte Abläufe geben Sicherheit, während genug Raum für spontane Entdeckungen bleibt.
+					Strukturierte Abläufe geben Sicherheit, während genug Raum für spontane Entdeckungen
+					bleibt.
 				</p>
 				<div class="rhythm-highlights">
 					<div class="rhythm-item">
@@ -192,9 +250,16 @@
 				</div>
 				<a href="/konzept" class="link-arrow">
 					Mehr über unser Konzept erfahren
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M5 12h14"/>
-						<path d="m12 5 7 7-7 7"/>
+					<svg
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M5 12h14" />
+						<path d="m12 5 7 7-7 7" />
 					</svg>
 				</a>
 			</div>
@@ -202,17 +267,29 @@
 				<div class="image-circle">
 					<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
 						<!-- Clock circle -->
-						<circle cx="150" cy="150" r="140" fill="#F0F9FF" stroke="#8CC152" stroke-width="2"/>
+						<circle cx="150" cy="150" r="140" fill="#F0F9FF" stroke="#8CC152" stroke-width="2" />
 						<!-- Clock hands -->
-						<line x1="150" y1="150" x2="150" y2="60" stroke="#2D3436" stroke-width="4" stroke-linecap="round"/>
-						<line x1="150" y1="150" x2="200" y2="150" stroke="#636E72" stroke-width="3" stroke-linecap="round"/>
+						<line
+							x1="150"
+							y1="150"
+							x2="150"
+							y2="60"
+							stroke="#2D3436"
+							stroke-width="4"
+							stroke-linecap="round"
+						/>
+						<line
+							x1="150"
+							y1="150"
+							x2="200"
+							y2="150"
+							stroke="#636E72"
+							stroke-width="3"
+							stroke-linecap="round"
+						/>
 						<!-- Center dot -->
-						<circle cx="150" cy="150" r="8" fill="#2D3436"/>
+						<circle cx="150" cy="150" r="8" fill="#2D3436" />
 						<!-- Activity icons around the clock -->
-						<text x="150" y="40" text-anchor="middle" font-size="24">☀️</text>
-						<text x="240" y="160" text-anchor="middle" font-size="24">🌳</text>
-						<text x="150" y="270" text-anchor="middle" font-size="24">🍽️</text>
-						<text x="60" y="160" text-anchor="middle" font-size="24">🎨</text>
 					</svg>
 				</div>
 			</div>
@@ -226,24 +303,22 @@
 		<h2 class="section-title">Vertrauen durch Qualität</h2>
 		<div class="trust-grid">
 			<div class="trust-card">
-				<div class="trust-icon">👩‍🏫</div>
 				<h3>Qualifizierte Betreuung</h3>
 				<p>Zertifizierte Tagesmutter mit langjähriger Erfahrung und regelmäßigen Fortbildungen</p>
 			</div>
 			<div class="trust-card">
-				<div class="trust-icon">🏅</div>
 				<h3>Kleine Gruppe</h3>
 				<p>Maximal 5 Kinder ermöglichen individuelle Förderung und enge Bindungen</p>
 			</div>
 			<div class="trust-card">
-				<div class="trust-icon">🤝</div>
 				<h3>Partnerschaft</h3>
 				<p>Enge Zusammenarbeit mit Eltern und Kooperation mit Kindertagespflege Lindeblatt</p>
 			</div>
 			<div class="trust-card">
-				<div class="trust-icon">📚</div>
 				<h3>Bildungsplan</h3>
-				<p>Ganzheitliche Förderung nach aktuellem Bildungsplan - spielerisch im Alltag integriert</p>
+				<p>
+					Ganzheitliche Förderung nach aktuellem Bildungsplan - spielerisch im Alltag integriert
+				</p>
 			</div>
 		</div>
 	</div>
@@ -254,14 +329,24 @@
 	<div class="container">
 		<div class="cta-content">
 			<h2>Bereit für einen Besuch im Hummelgarten?</h2>
-			<p>Lernen Sie uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Wir freuen uns auf Sie und Ihr Kind!</p>
+			<p>
+				Lernen Sie uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Wir freuen uns auf
+				Sie und Ihr Kind!
+			</p>
 			<div class="cta-actions">
 				<a href="/kontakt" class="btn-primary large">Termin vereinbaren</a>
 				<a href="/ueber-mich" class="btn-text">
 					Mehr über mich erfahren
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M5 12h14"/>
-						<path d="m12 5 7 7-7 7"/>
+					<svg
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M5 12h14" />
+						<path d="m12 5 7 7-7 7" />
 					</svg>
 				</a>
 			</div>
@@ -287,7 +372,7 @@
 		min-height: 90vh;
 		display: flex;
 		align-items: center;
-		background: linear-gradient(135deg, #FAFAFA 0%, #F0F9FF 100%);
+		background: linear-gradient(135deg, #fafafa 0%, #f0f9ff 100%);
 		padding: 2rem 0;
 		overflow: hidden;
 		position: relative;
@@ -306,20 +391,20 @@
 	.hero-title {
 		font-size: clamp(2.5rem, 5vw, 4rem);
 		font-weight: 300;
-		color: #2D3436;
+		color: #2d3436;
 		line-height: 1.2;
 		margin-bottom: 1.5rem;
 	}
 
 	.hero-title .highlight {
-		color: #8CC152;
+		color: #8cc152;
 		font-weight: 400;
 		position: relative;
 	}
 
 	.hero-subtitle {
 		font-size: clamp(1.1rem, 2vw, 1.4rem);
-		color: #636E72;
+		color: #636e72;
 		line-height: 1.6;
 		margin-bottom: 2rem;
 	}
@@ -339,12 +424,12 @@
 		background: white;
 		border-radius: 20px;
 		font-size: 0.9rem;
-		color: #636E72;
+		color: #636e72;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 	}
 
 	.feature-badge svg {
-		color: #8CC152;
+		color: #8cc152;
 	}
 
 	.hero-actions {
@@ -353,7 +438,8 @@
 		flex-wrap: wrap;
 	}
 
-	.btn-primary, .btn-secondary {
+	.btn-primary,
+	.btn-secondary {
 		padding: 1rem 2rem;
 		border-radius: 50px;
 		text-decoration: none;
@@ -363,7 +449,7 @@
 	}
 
 	.btn-primary {
-		background: #8CC152;
+		background: #8cc152;
 		color: white;
 		box-shadow: 0 4px 15px rgba(140, 193, 82, 0.3);
 	}
@@ -375,12 +461,12 @@
 
 	.btn-secondary {
 		background: white;
-		color: #8CC152;
-		border: 2px solid #8CC152;
+		color: #8cc152;
+		border: 2px solid #8cc152;
 	}
 
 	.btn-secondary:hover {
-		background: #8CC152;
+		background: #8cc152;
 		color: white;
 	}
 
@@ -436,7 +522,7 @@
 	.section-title {
 		font-size: clamp(2rem, 4vw, 3rem);
 		font-weight: 300;
-		color: #2D3436;
+		color: #2d3436;
 		text-align: center;
 		margin-bottom: 3rem;
 	}
@@ -450,7 +536,7 @@
 	.section-subtitle {
 		text-align: center;
 		font-size: 1.2rem;
-		color: #636E72;
+		color: #636e72;
 		margin-top: -1.5rem;
 		margin-bottom: 3rem;
 		font-weight: 300;
@@ -458,7 +544,7 @@
 
 	/* Features Section */
 	.features-section {
-		background: #FAFAFA;
+		background: #fafafa;
 	}
 
 	.features-grid {
@@ -490,12 +576,12 @@
 	.feature-card h3 {
 		font-size: 1.4rem;
 		font-weight: 400;
-		color: #2D3436;
+		color: #2d3436;
 		margin-bottom: 1rem;
 	}
 
 	.feature-card p {
-		color: #636E72;
+		color: #636e72;
 		line-height: 1.6;
 	}
 
@@ -514,19 +600,19 @@
 	.rhythm-text h2 {
 		font-size: clamp(2rem, 4vw, 2.5rem);
 		font-weight: 300;
-		color: #2D3436;
+		color: #2d3436;
 		margin-bottom: 1rem;
 	}
 
 	.rhythm-intro {
 		font-size: 1.2rem;
-		color: #636E72;
+		color: #636e72;
 		margin-bottom: 2rem;
 		line-height: 1.6;
 	}
 
 	.rhythm-highlights {
-		background: #F8F9FA;
+		background: #f8f9fa;
 		padding: 2rem;
 		border-radius: 20px;
 		margin-bottom: 2rem;
@@ -537,7 +623,7 @@
 		align-items: center;
 		gap: 1.5rem;
 		padding: 1rem 0;
-		border-bottom: 1px solid #E9ECEF;
+		border-bottom: 1px solid #e9ecef;
 	}
 
 	.rhythm-item:last-child {
@@ -546,13 +632,13 @@
 
 	.time {
 		font-weight: 500;
-		color: #8CC152;
+		color: #8cc152;
 		font-size: 1.1rem;
 		min-width: 60px;
 	}
 
 	.activity {
-		color: #636E72;
+		color: #636e72;
 		font-size: 1.1rem;
 	}
 
@@ -560,7 +646,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		color: #8CC152;
+		color: #8cc152;
 		text-decoration: none;
 		font-weight: 500;
 		transition: gap 0.3s ease;
@@ -579,7 +665,7 @@
 
 	/* Trust Section */
 	.trust-section {
-		background: #F0F9FF;
+		background: #f0f9ff;
 	}
 
 	.trust-grid {
@@ -601,18 +687,18 @@
 	.trust-card h3 {
 		font-size: 1.3rem;
 		font-weight: 400;
-		color: #2D3436;
+		color: #2d3436;
 		margin-bottom: 0.5rem;
 	}
 
 	.trust-card p {
-		color: #636E72;
+		color: #636e72;
 		line-height: 1.6;
 	}
 
 	/* CTA Section */
 	.cta-section {
-		background: linear-gradient(135deg, #8CC152 0%, #6FA73D 100%);
+		background: linear-gradient(135deg, #8cc152 0%, #6fa73d 100%);
 		color: white;
 		text-align: center;
 	}
@@ -640,7 +726,7 @@
 
 	.cta-section .btn-primary {
 		background: white;
-		color: #8CC152;
+		color: #8cc152;
 	}
 
 	.cta-section .btn-primary:hover {
@@ -702,3 +788,4 @@
 		}
 	}
 </style>
+

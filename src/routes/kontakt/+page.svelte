@@ -7,7 +7,7 @@
 	<title>Kontakt - Kindertagespflege Hummelgarten</title>
 	<meta
 		name="description"
-		content="Nehmen Sie Kontakt mit uns auf. Wir freuen uns auf Ihre Nachricht."
+		content="Nehmen Sie Kontakt mit uns auf. Ich freue mich auf Ihre Nachricht."
 	/>
 </svelte:head>
 
@@ -44,4 +44,3 @@
 		margin: 0 auto;
 	}
 </style>
-
