@@ -1,0 +1,115 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "logo_image": {
+          "type": "Image",
+          "config": {
+            "label": "Logo Image",
+            "constraint": {
+              "width": 60,
+              "height": 60
+            },
+            "thumbnails": []
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": "Liebevolle Betreuung für Ihr Kind"
+          }
+        },
+        "owner_name": {
+          "type": "Text",
+          "config": {
+            "label": "Betreiber Name",
+            "placeholder": "Name des Betreibers"
+          }
+        },
+        "address_street": {
+          "type": "Text",
+          "config": {
+            "label": "Straße/Hausnummer",
+            "placeholder": "Griebener Chaussee 4"
+          }
+        },
+        "address_city": {
+          "type": "Text",
+          "config": {
+            "label": "PLZ/Ort",
+            "placeholder": "16775 Löwenberger Land OT Linde"
+          }
+        },
+        "phone": {
+          "type": "Text",
+          "config": {
+            "label": "Telefon",
+            "placeholder": "033094/51540"
+          }
+        },
+        "email": {
+          "type": "Text",
+          "config": {
+            "label": "E-Mail",
+            "placeholder": "info@hummelgarten.de"
+          }
+        },
+        "opening_days": {
+          "type": "Text",
+          "config": {
+            "label": "Öffnungstage",
+            "placeholder": "Montag - Freitag"
+          }
+        },
+        "opening_hours": {
+          "type": "Text",
+          "config": {
+            "label": "Öffnungszeiten",
+            "placeholder": "7:30 - 16:30 Uhr"
+          }
+        },
+        "closing_note": {
+          "type": "Text",
+          "config": {
+            "label": "Schließzeiten Hinweis",
+            "placeholder": "An Wochenenden und Feiertagen geschlossen"
+          }
+        },
+        "copyright_text": {
+          "type": "Text",
+          "config": {
+            "label": "Copyright Text",
+            "placeholder": "© 2024 Kindertagespflege Hummelgarten. Mit ❤️ gestaltet."
+          }
+        }
+      },
+      "items": {
+        "link_label": {
+          "type": "Text",
+          "config": {
+            "label": "Link Label",
+            "placeholder": "Unser Konzept"
+          }
+        },
+        "link_url": {
+          "type": "Text",
+          "config": {
+            "label": "Link URL",
+            "placeholder": "/konzept"
+          }
+        }
+      }
+    }
+  ]
+}

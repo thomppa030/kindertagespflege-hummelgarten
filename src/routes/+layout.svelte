@@ -5,6 +5,8 @@
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+
+	export let data;
 </script>
 
 <svelte:head>
@@ -27,6 +29,6 @@
 	<slot />
 </main>
 
-<Footer />
+<Footer footer={data.footer?.data} />
 
 <PrismicPreview {repositoryName} />

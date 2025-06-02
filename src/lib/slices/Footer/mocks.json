@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"adress_street_number": {
+				"__TYPE__": "FieldContent",
+				"value": "climb",
+				"type": "Text"
+			},
+			"adress_zipcode_town": {
+				"__TYPE__": "FieldContent",
+				"value": "command",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

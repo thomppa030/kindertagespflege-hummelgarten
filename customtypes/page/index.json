@@ -22,15 +22,47 @@
 					"single": "heading1"
 				}
 			},
+			"hero_title": {
+				"type": "Text",
+				"config": {
+					"label": "Hero Title",
+					"placeholder": "Willkommen im Hummelgarten"
+				}
+			},
+			"hero_subtitle": {
+				"type": "Text",
+				"config": {
+					"label": "Hero Subtitle",
+					"placeholder": "Ein liebevoller Ort, an dem Ihr Kind wachsen und entdecken kann"
+				}
+			},
+			"hero_button_text": {
+				"type": "Text",
+				"config": {
+					"label": "Hero Button Text",
+					"placeholder": "Mehr erfahren"
+				}
+			},
+			"hero_button_link": {
+				"type": "Text",
+				"config": {
+					"label": "Hero Button Link",
+					"placeholder": "#about"
+				}
+			},
+			"hero_image": {
+				"type": "Image",
+				"config": {
+					"label": "Hero Image",
+					"constraint": {},
+					"thumbnails": []
+				}
+			},
 			"slices": {
 				"type": "Slices",
 				"fieldset": "Slice Zone",
 				"config": {
-					"choices": {
-						"rich_text": {
-							"type": "SharedSlice"
-						}
-					}
+					"choices": {}
 				}
 			}
 		},

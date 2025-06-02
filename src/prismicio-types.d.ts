@@ -4,7 +4,71 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type FooterDocumentDataSlicesSlice = FooterSlice;
+
+/**
+ * Content for footer documents
+ */
+interface FooterDocumentData {
+	/**
+	 * Slice Zone field in *footer*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<FooterDocumentDataSlicesSlice> /**
+	 * Meta Title field in *footer*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: footer.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *footer*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: footer.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *footer*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: footer.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<FooterDocumentData>,
+	'footer',
+	Lang
+>;
+
+type PageDocumentDataSlicesSlice = never;
 
 /**
  * Content for Page documents
@@ -20,6 +84,61 @@ interface PageDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	title: prismic.TitleField;
+
+	/**
+	 * Hero Title field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Willkommen im Hummelgarten
+	 * - **API ID Path**: page.hero_title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	hero_title: prismic.KeyTextField;
+
+	/**
+	 * Hero Subtitle field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Ein liebevoller Ort, an dem Ihr Kind wachsen und entdecken kann
+	 * - **API ID Path**: page.hero_subtitle
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	hero_subtitle: prismic.KeyTextField;
+
+	/**
+	 * Hero Button Text field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Mehr erfahren
+	 * - **API ID Path**: page.hero_button_text
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	hero_button_text: prismic.KeyTextField;
+
+	/**
+	 * Hero Button Link field in *Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: #about
+	 * - **API ID Path**: page.hero_button_link
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	hero_button_link: prismic.KeyTextField;
+
+	/**
+	 * Hero Image field in *Page*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: page.hero_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	hero_image: prismic.ImageField<never>;
 
 	/**
 	 * Slice Zone field in *Page*
@@ -79,49 +198,59 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes = FooterDocument | PageDocument;
 
 /**
- * Primary content in *RichText → Default → Primary*
+ * Primary content in *Footer → Default → Primary*
  */
-export interface RichTextSliceDefaultPrimary {
+export interface FooterSliceDefaultPrimary {
 	/**
-	 * Content field in *RichText → Default → Primary*
+	 * Straße/Hausnummer field in *Footer → Default → Primary*
 	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Lorem ipsum...
-	 * - **API ID Path**: rich_text.default.primary.content
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Griebener Chaussee 4
+	 * - **API ID Path**: footer.default.primary.adress_street_number
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
-	content: prismic.RichTextField;
+	adress_street_number: prismic.KeyTextField;
+
+	/**
+	 * PLZ/Ort field in *Footer → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: 16775 Löwenberger Land OT Linde
+	 * - **API ID Path**: footer.default.primary.adress_zipcode_town
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	adress_zipcode_town: prismic.KeyTextField;
 }
 
 /**
- * Default variation for RichText Slice
+ * Default variation for Footer Slice
  *
  * - **API ID**: `default`
- * - **Description**: RichText
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
+export type FooterSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Simplify<RichTextSliceDefaultPrimary>,
+	Simplify<FooterSliceDefaultPrimary>,
 	never
 >;
 
 /**
- * Slice variation for *RichText*
+ * Slice variation for *Footer*
  */
-type RichTextSliceVariation = RichTextSliceDefault;
+type FooterSliceVariation = FooterSliceDefault;
 
 /**
- * RichText Shared Slice
+ * Footer Shared Slice
  *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
+ * - **API ID**: `footer`
+ * - **Description**: Footer
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
+export type FooterSlice = prismic.SharedSlice<'footer', FooterSliceVariation>;
 
 declare module '@prismicio/client' {
 	interface CreateClient {
@@ -131,16 +260,30 @@ declare module '@prismicio/client' {
 		): prismic.Client<AllDocumentTypes>;
 	}
 
+	interface CreateWriteClient {
+		(
+			repositoryNameOrEndpoint: string,
+			options: prismic.WriteClientConfig
+		): prismic.WriteClient<AllDocumentTypes>;
+	}
+
+	interface CreateMigration {
+		(): prismic.Migration<AllDocumentTypes>;
+	}
+
 	namespace Content {
 		export type {
+			FooterDocument,
+			FooterDocumentData,
+			FooterDocumentDataSlicesSlice,
 			PageDocument,
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
-			RichTextSlice,
-			RichTextSliceDefaultPrimary,
-			RichTextSliceVariation,
-			RichTextSliceDefault
+			FooterSlice,
+			FooterSliceDefaultPrimary,
+			FooterSliceVariation,
+			FooterSliceDefault
 		};
 	}
 }
