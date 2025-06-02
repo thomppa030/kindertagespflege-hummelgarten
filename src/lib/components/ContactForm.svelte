@@ -20,15 +20,25 @@
 		error = '';
 
 		try {
-			const response = await fetch('/api/contact', {
+			const response = await fetch('https://api.web3forms.com/submit', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
 				},
-				body: JSON.stringify(formData)
+				body: JSON.stringify({
+					access_key: '5db7104f-f776-48ef-9b9e-49e0dc278ffb', // TODO: Replace with your Web3Forms access key
+					name: formData.name,
+					email: formData.email,
+					phone: formData.phone,
+					message: formData.message,
+					subject: 'Neue Kontaktanfrage - Kindertagespflege Hummelgarten'
+				})
 			});
 
-			if (response.ok) {
+			const result = await response.json();
+
+			if (result.success) {
 				success = true;
 				formData = { name: '', email: '', phone: '', message: '' };
 				setTimeout(() => {
@@ -157,7 +167,7 @@
 		justify-content: center;
 		align-items: center;
 		min-height: 100vh;
-		padding: 2rem;
+		padding: 0;
 		box-sizing: border-box;
 	}
 

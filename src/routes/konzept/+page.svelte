@@ -121,27 +121,15 @@
 								<li>Pflegen unsere Beete und lernen Verantwortung</li>
 								<li>Ernten und verarbeiten unser eigenes Gemüse</li>
 								<li>Entdecken Insekten auf der bunten Blumenwiese</li>
-								<li>Freuen uns über tägliche Besuche "unseres" Eichhörnchens</li>
 							</ul>
 						</div>
 
 						<div class="image-placeholder garden-image">
-							<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-								<rect width="400" height="300" fill="#E8F5E9" />
-								<circle cx="350" cy="50" r="30" fill="#FFD93D" opacity="0.8" />
-								<path
-									d="M0 200 Q100 150 200 180 T400 200 L400 300 L0 300 Z"
-									fill="#8CC152"
-									opacity="0.6"
-								/>
-								<path
-									d="M50 250 L50 200 Q50 190 60 190 Q70 190 70 200 L70 250"
-									stroke="#6B4423"
-									stroke-width="8"
-									fill="none"
-								/>
-								<circle cx="60" cy="180" r="25" fill="#8CC152" />
-							</svg>
+							<img 
+								src="/PicturesHome/20250514_094452.jpg" 
+								alt="Garten der Kindertagespflege Hummelgarten mit Gemüsebeeten und Spielbereich"
+								loading="lazy"
+							/>
 						</div>
 					</div>
 
@@ -305,7 +293,7 @@
 <style>
 	.konzept-page {
 		min-height: 100vh;
-		background: linear-gradient(to bottom, #fafafa, #ffffff);
+		background-color: #fafafa;
 	}
 
 	/* Hero Section */
@@ -468,6 +456,12 @@
 		border-radius: 15px;
 		overflow: hidden;
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.image-placeholder img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	/* Movement Block */

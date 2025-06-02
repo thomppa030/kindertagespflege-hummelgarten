@@ -82,6 +82,7 @@
 	/>
 </svelte:head>
 
+<div class="page-wrapper">
 <FloatingBanner />
 
 <!-- Custom Hero Section -->
@@ -358,8 +359,15 @@
 {#if data.page.data.slices && data.page.data.slices.length > 0}
 	<SliceZone slices={data.page.data.slices} {components} />
 {/if}
+</div>
 
 <style>
+	/* Page wrapper with creamy background */
+	.page-wrapper {
+		background-color: #fafafa;
+		min-height: 100vh;
+	}
+
 	/* Container */
 	.container {
 		max-width: 1200px;
@@ -372,7 +380,7 @@
 		min-height: 90vh;
 		display: flex;
 		align-items: center;
-		background: linear-gradient(135deg, #fafafa 0%, #f0f9ff 100%);
+		background: transparent;
 		padding: 2rem 0;
 		overflow: hidden;
 		position: relative;

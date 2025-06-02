@@ -13,7 +13,13 @@
 			<div class="footer__section">
 				<div class="footer__logo">
 					{#if slice.primary.logo_image?.url}
-						<img src={slice.primary.logo_image.url} alt="Hummelgarten Logo" class="footer__logo-image" width="60" height="60" />
+						<img
+							src={slice.primary.logo_image.url}
+							alt="Hummelgarten Logo"
+							class="footer__logo-image"
+							width="60"
+							height="60"
+						/>
 					{:else}
 						<span class="footer__logo-icon">🐝</span>
 					{/if}
@@ -33,7 +39,9 @@
 						{slice.primary.address_city}
 					</p>
 					<p>
-						<a href="tel:+{slice.primary.phone?.replace(/\D/g, '')}" class="footer__link">📞 {slice.primary.phone}</a><br />
+						<a href="tel:+{slice.primary.phone?.replace(/\D/g, '')}" class="footer__link"
+							>📞 {slice.primary.phone}</a
+						><br />
 						<a href="mailto:{slice.primary.email}" class="footer__link">✉️ {slice.primary.email}</a>
 					</p>
 				</div>
@@ -62,71 +70,52 @@
 
 		<div class="footer__bottom">
 			<p class="footer__copyright">
-				{slice.primary.copyright_text || `© ${new Date().getFullYear()} Kindertagespflege Hummelgarten. Mit ❤️ gestaltet.`}
+				{slice.primary.copyright_text ||
+					`© ${new Date().getFullYear()} Kindertagespflege Hummelgarten. Mit ❤️ gestaltet.`}
 			</p>
 		</div>
 	</div>
 </footer>
 
 <style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
 	.footer {
-		background-color: var(--color-forest);
-		color: var(--color-warm-white);
+		background: linear-gradient(135deg, #8cc152 0%, #6fa73d 100%);
+		color: white;
 		position: relative;
-		margin-top: var(--space-4xl);
-		padding-top: var(--space-4xl);
+		margin-top: 0;
+		padding: 4rem 0 2rem;
 		overflow: hidden;
 	}
 
 	.footer__decoration {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 80px;
-		overflow: hidden;
-		transform: translateY(-99%);
-	}
-
-	.footer__wave {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 200%;
-		height: 100%;
-		background-color: var(--color-forest);
-		border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-		animation: wave 20s linear infinite;
-	}
-
-	@keyframes wave {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-50%);
-		}
+		display: none;
 	}
 
 	.footer__content {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: var(--space-3xl);
-		padding-bottom: var(--space-3xl);
-		border-bottom: 1px solid rgba(250, 247, 242, 0.2);
+		gap: 3rem;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
 	.footer__section {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-md);
+		gap: 1rem;
 	}
 
 	.footer__logo {
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
-		margin-bottom: var(--space-md);
+		gap: 0.75rem;
+		margin-bottom: 1rem;
 	}
 
 	.footer__logo-icon {
@@ -143,9 +132,8 @@
 	}
 
 	.footer__logo-text {
-		font-family: var(--font-primary);
-		font-size: var(--text-lg);
-		font-weight: 400;
+		font-size: 1.125rem;
+		font-weight: 300;
 		line-height: 1.3;
 		margin: 0;
 	}
@@ -156,61 +144,61 @@
 	}
 
 	.footer__heading {
-		font-family: var(--font-primary);
-		font-size: var(--text-lg);
-		font-weight: 600;
-		margin: 0 0 var(--space-sm) 0;
-		color: var(--color-honey);
+		font-size: 1.25rem;
+		font-weight: 400;
+		margin: 0 0 1rem 0;
+		color: white;
+		opacity: 0.95;
 	}
 
 	.footer__contact p {
-		margin: 0 0 var(--space-md) 0;
+		margin: 0 0 1rem 0;
 		line-height: 1.6;
 	}
 
 	.footer__link {
-		color: var(--color-warm-white);
+		color: white;
 		text-decoration: none;
 		opacity: 0.9;
-		transition: all var(--transition-fast);
+		transition: all 0.3s ease;
 		display: inline-block;
-		margin-bottom: var(--space-xs);
+		margin-bottom: 0.5rem;
 	}
 
 	.footer__link:hover {
-		color: var(--color-honey);
+		color: white;
 		opacity: 1;
 		transform: translateX(2px);
-		text-decoration: none;
+		text-decoration: underline;
 	}
 
 	.footer__nav {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-xs);
+		gap: 0.5rem;
 	}
 
 	.footer__note {
-		font-size: var(--text-sm);
-		opacity: 0.8;
+		font-size: 0.875rem;
+		opacity: 0.85;
 		margin: 0;
 	}
 
 	.footer__bottom {
-		padding: var(--space-xl) 0;
+		padding: 2rem 0;
 		text-align: center;
 	}
 
 	.footer__copyright {
-		font-size: var(--text-sm);
-		opacity: 0.8;
+		font-size: 0.875rem;
+		opacity: 0.85;
 		margin: 0;
 	}
 
 	@media (max-width: 768px) {
 		.footer__content {
 			grid-template-columns: 1fr;
-			gap: var(--space-2xl);
+			gap: 2rem;
 		}
 
 		.footer__section {
@@ -226,3 +214,4 @@
 		}
 	}
 </style>
+
