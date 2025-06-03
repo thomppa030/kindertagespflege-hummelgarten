@@ -125,8 +125,8 @@
 						</div>
 
 						<div class="image-placeholder garden-image">
-							<img 
-								src="/PicturesHome/20250514_094452.jpg" 
+							<img
+								src="/PicturesHome/20250514_094452.jpg"
 								alt="Garten der Kindertagespflege Hummelgarten mit Gemüsebeeten und Spielbereich"
 								loading="lazy"
 							/>
@@ -280,8 +280,8 @@
 			<section class="section cta-section">
 				<div class="cta-content">
 					<p class="cta-text">
-						Lassen Sie uns gerne bei einem unverbindlichen Kennenlerntermin besprechen, wie Ihr Kind
-						bei uns bestmöglich gefördert und betreut werden kann.
+						Lasst uns gerne bei einem unverbindlichen Kennenlerntermin besprechen, wie euer Kind bei
+						uns bestmöglich gefördert und betreut werden kann.
 					</p>
 					<a href="/kontakt" class="cta-button">Kontakt aufnehmen</a>
 				</div>
@@ -750,4 +750,3 @@
 		}
 	}
 </style>
-
