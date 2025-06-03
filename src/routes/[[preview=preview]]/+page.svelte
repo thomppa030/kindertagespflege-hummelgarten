@@ -175,7 +175,7 @@
 	<section class="home-section gallery-section visible">
 		<div class="container">
 			<h2 class="section-title">Eindrücke aus unserem Alltag</h2>
-			<p class="section-subtitle">Entdecken Sie die vielfältigen Momente in unserem Hummelgarten</p>
+			<p class="section-subtitle">Entdeckt die vielfältigen Momente in unserem Hummelgarten</p>
 			<BentoGallery images={galleryImages.slice(0, 6)} />
 		</div>
 	</section>
@@ -331,8 +331,8 @@
 			<div class="cta-content">
 				<h2>Bereit für einen Besuch im Hummelgarten?</h2>
 				<p>
-					Lernen Sie uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Wir freuen uns auf
-					Sie und Ihr Kind!
+					Lernt uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Ich freue mich auf euch
+					und euer Kind!
 				</p>
 				<div class="cta-actions">
 					<a href="/kontakt" class="btn-primary large">Termin vereinbaren</a>
