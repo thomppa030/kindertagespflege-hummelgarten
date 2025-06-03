@@ -248,7 +248,7 @@
 					<div class="education-content">
 						<p>
 							Alle Bereiche des aktuellen Bildungsplans fließen spielerisch in unseren Alltag ein.
-							Das ausführliche pädagogische Konzept stelle ich Ihnen gerne persönlich vor.
+							Das ausführliche pädagogische Konzept stelle ich euch gerne persönlich vor.
 						</p>
 					</div>
 				</div>
