@@ -313,12 +313,15 @@
 				</div>
 				<div class="trust-card">
 					<h3>Partnerschaft</h3>
-					<p>Enge Zusammenarbeit mit Eltern und Kooperation mit Kindertagespflege Lindeblatt</p>
+					<p>
+						Enge Zusammenarbeit mit Eltern und Kooperation mit der Kindertagespflege Lindenblatt
+					</p>
 				</div>
 				<div class="trust-card">
 					<h3>Bildungsplan</h3>
 					<p>
-						Ganzheitliche Förderung nach aktuellem Bildungsplan - spielerisch im Alltag integriert
+						Ganzheitliche Förderung nach dem aktuellen Bildungsplan des Landes Brandenburg -
+						spielerisch im Alltag integriert
 					</p>
 				</div>
 			</div>

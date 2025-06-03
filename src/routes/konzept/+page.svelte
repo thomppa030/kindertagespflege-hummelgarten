@@ -216,7 +216,7 @@
 					</h2>
 
 					<div class="partnership-block">
-						<h3>Partnerschaft mit Kindertagespflege Lindeblatt</h3>
+						<h3>Partnerschaft mit der Kindertagespflege Lindenblatt</h3>
 						<p>Durch regelmäßige gemeinsame Aktivitäten erweitern wir den sozialen Horizont:</p>
 
 						<div class="benefits-list">
