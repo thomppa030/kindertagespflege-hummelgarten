@@ -83,282 +83,282 @@
 </svelte:head>
 
 <div class="page-wrapper">
-<FloatingBanner />
+	<FloatingBanner />
 
-<!-- Custom Hero Section -->
-<section class="custom-hero">
-	{#if visible}
-		<div class="hero-content" in:fade={{ duration: 800 }}>
-			<div class="hero-text">
-				<h1 class="hero-title">
-					Willkommen im
-					<span class="highlight">Hummelgarten</span>
-				</h1>
-				<p class="hero-subtitle">
-					Wo kleine Entdecker in familiärer Atmosphäre<br />
-					wachsen, spielen und die Natur erleben
-				</p>
-				<div class="hero-features">
-					<span class="feature-badge">
-						<svg
-							width="16"
-							height="16"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-							<polyline points="22 4 12 14.01 9 11.01" />
-						</svg>
-						Bis zu 5 Kinder
-					</span>
-					<span class="feature-badge">
-						<svg
-							width="16"
-							height="16"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-							<polyline points="22 4 12 14.01 9 11.01" />
-						</svg>
-						Eigener Garten
-					</span>
-					<span class="feature-badge">
-						<svg
-							width="16"
-							height="16"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-							<polyline points="22 4 12 14.01 9 11.01" />
-						</svg>
-						Waldnähe
-					</span>
+	<!-- Custom Hero Section -->
+	<section class="custom-hero">
+		{#if visible}
+			<div class="hero-content" in:fade={{ duration: 800 }}>
+				<div class="hero-text">
+					<h1 class="hero-title">
+						Willkommen im
+						<span class="highlight">Hummelgarten</span>
+					</h1>
+					<p class="hero-subtitle">
+						Wo kleine Entdecker in familiärer Atmosphäre<br />
+						wachsen, spielen und die Natur erleben
+					</p>
+					<div class="hero-features">
+						<span class="feature-badge">
+							<svg
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+								<polyline points="22 4 12 14.01 9 11.01" />
+							</svg>
+							Bis zu 5 Kinder
+						</span>
+						<span class="feature-badge">
+							<svg
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+								<polyline points="22 4 12 14.01 9 11.01" />
+							</svg>
+							Eigener Garten
+						</span>
+						<span class="feature-badge">
+							<svg
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+								<polyline points="22 4 12 14.01 9 11.01" />
+							</svg>
+							Waldnähe
+						</span>
+					</div>
+					<div class="hero-actions">
+						<a href="/konzept" class="btn-primary">Unser Konzept entdecken</a>
+						<a href="/kontakt" class="btn-secondary">Kennenlernen vereinbaren</a>
+					</div>
 				</div>
-				<div class="hero-actions">
-					<a href="/konzept" class="btn-primary">Unser Konzept entdecken</a>
-					<a href="/kontakt" class="btn-secondary">Kennenlernen vereinbaren</a>
+				<div class="hero-image">
+					<div class="image-decoration">
+						<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+							<path
+								fill="#8CC152"
+								fill-opacity="0.15"
+								d="M47.5,-65.2C60.2,-56.8,68.1,-41.1,71.3,-24.8C74.5,-8.5,73,8.4,67.3,23.2C61.6,38,51.7,50.7,38.8,59.1C25.9,67.5,10,71.6,-6.9,69.9C-23.8,68.2,-41.7,60.7,-54.6,48.9C-67.5,37.1,-75.4,21,-76.3,4.3C-77.2,-12.4,-71.1,-29.8,-60.4,-43.1C-49.7,-56.4,-34.4,-65.6,-18.5,-68.5C-2.6,-71.4,13.9,-68,26.8,-60.2C39.7,-52.4,48.9,-40.3,47.5,-65.2Z"
+								transform="translate(100 100)"
+							/>
+						</svg>
+					</div>
+					<!-- Placeholder for image -->
+					<div class="hero-image-container">
+						<img
+							src="/PicturesHome/20250514_094452.jpg"
+							alt="Kinder spielen im Hummelgarten"
+							class="hero-main-image"
+						/>
+					</div>
 				</div>
 			</div>
-			<div class="hero-image">
-				<div class="image-decoration">
-					<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-						<path
-							fill="#8CC152"
-							fill-opacity="0.15"
-							d="M47.5,-65.2C60.2,-56.8,68.1,-41.1,71.3,-24.8C74.5,-8.5,73,8.4,67.3,23.2C61.6,38,51.7,50.7,38.8,59.1C25.9,67.5,10,71.6,-6.9,69.9C-23.8,68.2,-41.7,60.7,-54.6,48.9C-67.5,37.1,-75.4,21,-76.3,4.3C-77.2,-12.4,-71.1,-29.8,-60.4,-43.1C-49.7,-56.4,-34.4,-65.6,-18.5,-68.5C-2.6,-71.4,13.9,-68,26.8,-60.2C39.7,-52.4,48.9,-40.3,47.5,-65.2Z"
-							transform="translate(100 100)"
-						/>
-					</svg>
+		{/if}
+	</section>
+
+	<!-- Gallery Section -->
+	<section class="home-section gallery-section visible">
+		<div class="container">
+			<h2 class="section-title">Eindrücke aus unserem Alltag</h2>
+			<p class="section-subtitle">Entdecken Sie die vielfältigen Momente in unserem Hummelgarten</p>
+			<BentoGallery images={galleryImages.slice(0, 6)} />
+		</div>
+	</section>
+
+	<!-- Key Features Section -->
+	<section class="home-section features-section visible">
+		<div class="container">
+			<h2 class="section-title">Was macht uns besonders?</h2>
+			<div class="features-grid">
+				<div class="feature-card">
+					<h3>Familiäre Atmosphäre</h3>
+					<p>
+						In unserem liebevoll eingerichteten Erdgeschoss fühlen sich Kinder wie zu Hause. Mit
+						eigenem Spielzimmer, Ruheraum und direktem Gartenzugang.
+					</p>
 				</div>
-				<!-- Placeholder for image -->
-				<div class="hero-image-container">
-					<img
-						src="/PicturesHome/20250514_094452.jpg"
-						alt="Kinder spielen im Hummelgarten"
-						class="hero-main-image"
-					/>
+				<div class="feature-card">
+					<h3>Naturverbunden</h3>
+					<p>
+						Unser großer Garten lädt zum Entdecken ein. Gemeinsam säen, pflegen und ernten wir - vom
+						Samenkorn bis zur selbstgekochten Suppe.
+					</p>
+				</div>
+				<div class="feature-card">
+					<h3>Tiergestützte Pädagogik</h3>
+					<p>
+						Unser Hund Dio und Katze Kelly begleiten den Alltag. Kinder lernen respektvollen Umgang
+						und entwickeln Empathie.
+					</p>
+				</div>
+				<div class="feature-card">
+					<h3>Waldabenteuer</h3>
+					<p>
+						Das Lindsche Luch liegt direkt vor der Tür. Mit dem Krippenwagen erkunden wir regelmäßig
+						Wald und Wiesen.
+					</p>
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<!-- Daily Rhythm Preview -->
+	<section class="home-section rhythm-section">
+		<div class="container">
+			<div class="rhythm-content">
+				<div class="rhythm-text">
+					<h2>Ein Tag bei uns</h2>
+					<p class="rhythm-intro">
+						Strukturierte Abläufe geben Sicherheit, während genug Raum für spontane Entdeckungen
+						bleibt.
+					</p>
+					<div class="rhythm-highlights">
+						<div class="rhythm-item">
+							<span class="time">7:00</span>
+							<span class="activity">Ankommen & Freispiel</span>
+						</div>
+						<div class="rhythm-item">
+							<span class="time">9:00</span>
+							<span class="activity">Gemeinsames Frühstück</span>
+						</div>
+						<div class="rhythm-item">
+							<span class="time">10:00</span>
+							<span class="activity">Garten oder Waldzeit</span>
+						</div>
+						<div class="rhythm-item">
+							<span class="time">12:00</span>
+							<span class="activity">Mittagessen & Ruhezeit</span>
+						</div>
+						<div class="rhythm-item">
+							<span class="time">14:30</span>
+							<span class="activity">Kreatives & Spielen</span>
+						</div>
+					</div>
+					<a href="/konzept" class="link-arrow">
+						Mehr über unser Konzept erfahren
+						<svg
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M5 12h14" />
+							<path d="m12 5 7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+				<div class="rhythm-image">
+					<div class="image-circle">
+						<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+							<!-- Clock circle -->
+							<circle cx="150" cy="150" r="140" fill="#F0F9FF" stroke="#8CC152" stroke-width="2" />
+							<!-- Clock hands -->
+							<line
+								x1="150"
+								y1="150"
+								x2="150"
+								y2="60"
+								stroke="#2D3436"
+								stroke-width="4"
+								stroke-linecap="round"
+							/>
+							<line
+								x1="150"
+								y1="150"
+								x2="200"
+								y2="150"
+								stroke="#636E72"
+								stroke-width="3"
+								stroke-linecap="round"
+							/>
+							<!-- Center dot -->
+							<circle cx="150" cy="150" r="8" fill="#2D3436" />
+							<!-- Activity icons around the clock -->
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trust Section -->
+	<section class="home-section trust-section">
+		<div class="container">
+			<h2 class="section-title">Vertrauen durch Qualität</h2>
+			<div class="trust-grid">
+				<div class="trust-card">
+					<h3>Qualifizierte Betreuung</h3>
+					<p>Zertifizierte Tagesmutter mit langjähriger Erfahrung und regelmäßigen Fortbildungen</p>
+				</div>
+				<div class="trust-card">
+					<h3>Kleine Gruppe</h3>
+					<p>Maximal 5 Kinder ermöglichen individuelle Förderung und enge Bindungen</p>
+				</div>
+				<div class="trust-card">
+					<h3>Partnerschaft</h3>
+					<p>Enge Zusammenarbeit mit Eltern und Kooperation mit Kindertagespflege Lindeblatt</p>
+				</div>
+				<div class="trust-card">
+					<h3>Bildungsplan</h3>
+					<p>
+						Ganzheitliche Förderung nach aktuellem Bildungsplan - spielerisch im Alltag integriert
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="home-section cta-section">
+		<div class="container">
+			<div class="cta-content">
+				<h2>Bereit für einen Besuch im Hummelgarten?</h2>
+				<p>
+					Lernen Sie uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Wir freuen uns auf
+					Sie und Ihr Kind!
+				</p>
+				<div class="cta-actions">
+					<a href="/kontakt" class="btn-primary large">Termin vereinbaren</a>
+					<a href="/ueber-mich" class="btn-text">
+						Mehr über mich erfahren
+						<svg
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M5 12h14" />
+							<path d="m12 5 7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Optional: Prismic Slices if content exists -->
+	{#if data.page.data.slices && data.page.data.slices.length > 0}
+		<SliceZone slices={data.page.data.slices} {components} />
 	{/if}
-</section>
-
-<!-- Gallery Section -->
-<section class="home-section gallery-section visible">
-	<div class="container">
-		<h2 class="section-title">Eindrücke aus unserem Alltag</h2>
-		<p class="section-subtitle">Entdecken Sie die vielfältigen Momente in unserem Hummelgarten</p>
-		<BentoGallery images={galleryImages.slice(0, 6)} />
-	</div>
-</section>
-
-<!-- Key Features Section -->
-<section class="home-section features-section visible">
-	<div class="container">
-		<h2 class="section-title">Was macht uns besonders?</h2>
-		<div class="features-grid">
-			<div class="feature-card">
-				<h3>Familiäre Atmosphäre</h3>
-				<p>
-					In unserem liebevoll eingerichteten Erdgeschoss fühlen sich Kinder wie zu Hause. Mit
-					eigenem Spielzimmer, Ruheraum und direktem Gartenzugang.
-				</p>
-			</div>
-			<div class="feature-card">
-				<h3>Naturverbunden</h3>
-				<p>
-					Unser großer Garten lädt zum Entdecken ein. Gemeinsam säen, pflegen und ernten wir - vom
-					Samenkorn bis zur selbstgekochten Suppe.
-				</p>
-			</div>
-			<div class="feature-card">
-				<h3>Tiergestützte Pädagogik</h3>
-				<p>
-					Unser Hund Dio und Katze Kelly begleiten den Alltag. Kinder lernen respektvollen Umgang
-					und entwickeln Empathie.
-				</p>
-			</div>
-			<div class="feature-card">
-				<h3>Waldabenteuer</h3>
-				<p>
-					Das Lindsche Luch liegt direkt vor der Tür. Mit dem Krippenwagen erkunden wir regelmäßig
-					Wald und Wiesen.
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Daily Rhythm Preview -->
-<section class="home-section rhythm-section">
-	<div class="container">
-		<div class="rhythm-content">
-			<div class="rhythm-text">
-				<h2>Ein Tag bei uns</h2>
-				<p class="rhythm-intro">
-					Strukturierte Abläufe geben Sicherheit, während genug Raum für spontane Entdeckungen
-					bleibt.
-				</p>
-				<div class="rhythm-highlights">
-					<div class="rhythm-item">
-						<span class="time">7:00</span>
-						<span class="activity">Ankommen & Freispiel</span>
-					</div>
-					<div class="rhythm-item">
-						<span class="time">9:00</span>
-						<span class="activity">Gemeinsames Frühstück</span>
-					</div>
-					<div class="rhythm-item">
-						<span class="time">10:00</span>
-						<span class="activity">Garten oder Waldzeit</span>
-					</div>
-					<div class="rhythm-item">
-						<span class="time">12:00</span>
-						<span class="activity">Mittagessen & Ruhezeit</span>
-					</div>
-					<div class="rhythm-item">
-						<span class="time">14:30</span>
-						<span class="activity">Kreatives & Spielen</span>
-					</div>
-				</div>
-				<a href="/konzept" class="link-arrow">
-					Mehr über unser Konzept erfahren
-					<svg
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path d="M5 12h14" />
-						<path d="m12 5 7 7-7 7" />
-					</svg>
-				</a>
-			</div>
-			<div class="rhythm-image">
-				<div class="image-circle">
-					<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-						<!-- Clock circle -->
-						<circle cx="150" cy="150" r="140" fill="#F0F9FF" stroke="#8CC152" stroke-width="2" />
-						<!-- Clock hands -->
-						<line
-							x1="150"
-							y1="150"
-							x2="150"
-							y2="60"
-							stroke="#2D3436"
-							stroke-width="4"
-							stroke-linecap="round"
-						/>
-						<line
-							x1="150"
-							y1="150"
-							x2="200"
-							y2="150"
-							stroke="#636E72"
-							stroke-width="3"
-							stroke-linecap="round"
-						/>
-						<!-- Center dot -->
-						<circle cx="150" cy="150" r="8" fill="#2D3436" />
-						<!-- Activity icons around the clock -->
-					</svg>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Trust Section -->
-<section class="home-section trust-section">
-	<div class="container">
-		<h2 class="section-title">Vertrauen durch Qualität</h2>
-		<div class="trust-grid">
-			<div class="trust-card">
-				<h3>Qualifizierte Betreuung</h3>
-				<p>Zertifizierte Tagesmutter mit langjähriger Erfahrung und regelmäßigen Fortbildungen</p>
-			</div>
-			<div class="trust-card">
-				<h3>Kleine Gruppe</h3>
-				<p>Maximal 5 Kinder ermöglichen individuelle Förderung und enge Bindungen</p>
-			</div>
-			<div class="trust-card">
-				<h3>Partnerschaft</h3>
-				<p>Enge Zusammenarbeit mit Eltern und Kooperation mit Kindertagespflege Lindeblatt</p>
-			</div>
-			<div class="trust-card">
-				<h3>Bildungsplan</h3>
-				<p>
-					Ganzheitliche Förderung nach aktuellem Bildungsplan - spielerisch im Alltag integriert
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- CTA Section -->
-<section class="home-section cta-section">
-	<div class="container">
-		<div class="cta-content">
-			<h2>Bereit für einen Besuch im Hummelgarten?</h2>
-			<p>
-				Lernen Sie uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Wir freuen uns auf
-				Sie und Ihr Kind!
-			</p>
-			<div class="cta-actions">
-				<a href="/kontakt" class="btn-primary large">Termin vereinbaren</a>
-				<a href="/ueber-mich" class="btn-text">
-					Mehr über mich erfahren
-					<svg
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path d="M5 12h14" />
-						<path d="m12 5 7 7-7 7" />
-					</svg>
-				</a>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Optional: Prismic Slices if content exists -->
-{#if data.page.data.slices && data.page.data.slices.length > 0}
-	<SliceZone slices={data.page.data.slices} {components} />
-{/if}
 </div>
 
 <style>
@@ -405,6 +405,7 @@
 	}
 
 	.hero-title .highlight {
+		font-family: 'CFPetersonPERSONAL', sans-serif;
 		color: #8cc152;
 		font-weight: 400;
 		position: relative;
@@ -796,4 +797,3 @@
 		}
 	}
 </style>
-

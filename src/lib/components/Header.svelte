@@ -87,8 +87,8 @@
 	}
 
 	.logo__icon {
-		width: 8.5rem;
-		height: 8.5rem;
+		width: 6.5rem;
+		height: 6.5rem;
 		object-fit: contain;
 	}
 
@@ -99,16 +99,16 @@
 	}
 
 	.logo__name {
-		font-family: var(--font-primary);
-		font-size: var(--text-base);
-		font-weight: 600;
-		color: var(--color-text-primary);
+		font-family: 'CFPetersonPERSONAL', sans-serif;
+		font-size: var(--text-lg);
+		font-weight: 500;
+		color: var(--color-accent);
 	}
 
 	.logo__subname {
-		font-family: var(--font-primary);
+		font-family: 'CFPetersonPERSONAL', sans-serif;
 		font-size: var(--text-lg);
-		font-weight: 400;
+		font-weight: 500;
 		color: var(--color-accent);
 	}
 

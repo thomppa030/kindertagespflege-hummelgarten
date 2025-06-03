@@ -132,6 +132,7 @@
 	}
 
 	.footer__logo-text {
+		font-family: 'CFPetersonPERSONAL', sans-serif;
 		font-size: 1.125rem;
 		font-weight: 300;
 		line-height: 1.3;
@@ -145,9 +146,9 @@
 
 	.footer__heading {
 		font-size: 1.25rem;
-		font-weight: 400;
+		font-weight: 600;
 		margin: 0 0 1rem 0;
-		color: white;
+		color: black;
 		opacity: 0.95;
 	}
 
@@ -214,4 +215,3 @@
 		}
 	}
 </style>
-
