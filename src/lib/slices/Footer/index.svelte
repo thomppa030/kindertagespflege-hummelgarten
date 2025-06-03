@@ -125,8 +125,8 @@
 	}
 
 	.footer__logo-image {
-		width: 60px;
-		height: 60px;
+		width: 50px;
+		height: 50px;
 		object-fit: contain;
 		filter: brightness(1.1);
 	}
@@ -140,14 +140,16 @@
 	}
 
 	.footer__description {
+		font-family: 'CFPetersonPERSONAL', sans-serif;
 		opacity: 0.9;
 		line-height: 1.7;
 	}
 
 	.footer__heading {
-		font-size: 1.25rem;
-		font-weight: 600;
-		margin: 0 0 1rem 0;
+		font-family: 'CFPetersonPERSONAL', sans-serif;
+		font-size: 1.125rem;
+		font-weight: 300;
+		margin: 0 0 -1rem 0;
 		color: black;
 		opacity: 0.95;
 	}
@@ -186,7 +188,7 @@
 	}
 
 	.footer__bottom {
-		padding: 2rem 0;
+		padding: 1rem 0;
 		text-align: center;
 	}
 
