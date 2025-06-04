@@ -230,23 +230,32 @@
 					<div class="rhythm-highlights">
 						<div class="rhythm-item">
 							<span class="time">7:00</span>
-							<span class="activity">Ankommen & Freispiel</span>
+							<span class="activity">Ankommen & 1. Frühstück</span>
+						</div>
+						<div class="rhythm-item">
+							<span class="time">8:00</span>
+							<span class="activity"
+								>Start in den Wald oder die Wiesen, Kreativzeit, pädagogische Angebote</span
+							>
 						</div>
 						<div class="rhythm-item">
 							<span class="time">9:00</span>
-							<span class="activity">Gemeinsames Frühstück</span>
+							<span class="activity">2. Frühstück</span>
 						</div>
 						<div class="rhythm-item">
-							<span class="time">10:00</span>
-							<span class="activity">Garten oder Waldzeit</span>
+							<span class="time">11:00</span>
+							<span class="activity">Mittagessen</span>
 						</div>
 						<div class="rhythm-item">
 							<span class="time">12:00</span>
-							<span class="activity">Mittagessen & Ruhezeit</span>
+							<span class="activity">Ruhezeit</span>
 						</div>
 						<div class="rhythm-item">
 							<span class="time">14:30</span>
-							<span class="activity">Kreatives & Spielen</span>
+							<span class="activity">Vesper</span>
+						</div>
+						<div class="rhythm-item">
+							<span class="activity">Danach Freispiel im Garten / Abholzeit</span>
 						</div>
 					</div>
 					<a href="/konzept" class="link-arrow">

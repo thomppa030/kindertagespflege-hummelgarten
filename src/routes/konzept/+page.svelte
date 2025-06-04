@@ -156,7 +156,7 @@
 					<div class="animals-intro">
 						<p>
 							Mein Hund Dio (fast 14 Jahre, ausgebildet und geimpft) und Katze Kelly (1,5 Jahre,
-							entwurmt und geimpft) leben mit uns zusammen.
+							geimpft) leben mit uns zusammen.
 						</p>
 					</div>
 
