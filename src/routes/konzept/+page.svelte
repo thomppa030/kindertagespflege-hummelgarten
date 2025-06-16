@@ -125,8 +125,8 @@
 						</div>
 
 						<div class="image-placeholder garden-image">
-							<img 
-								src="/PicturesHome/20250514_094452.jpg" 
+							<img
+								src="/PicturesHome/20250514_094452.jpg"
 								alt="Garten der Kindertagespflege Hummelgarten mit Gemüsebeeten und Spielbereich"
 								loading="lazy"
 							/>
@@ -156,7 +156,7 @@
 					<div class="animals-intro">
 						<p>
 							Mein Hund Dio (fast 14 Jahre, ausgebildet und geimpft) und Katze Kelly (1,5 Jahre,
-							entwurmt und geimpft) leben mit uns zusammen.
+							geimpft) leben mit uns zusammen.
 						</p>
 					</div>
 
@@ -216,7 +216,7 @@
 					</h2>
 
 					<div class="partnership-block">
-						<h3>Partnerschaft mit Kindertagespflege Lindeblatt</h3>
+						<h3>Partnerschaft mit der Kindertagespflege Lindenblatt</h3>
 						<p>Durch regelmäßige gemeinsame Aktivitäten erweitern wir den sozialen Horizont:</p>
 
 						<div class="benefits-list">
@@ -248,7 +248,7 @@
 					<div class="education-content">
 						<p>
 							Alle Bereiche des aktuellen Bildungsplans fließen spielerisch in unseren Alltag ein.
-							Das ausführliche pädagogische Konzept stelle ich Ihnen gerne persönlich vor.
+							Das ausführliche pädagogische Konzept stelle ich euch gerne persönlich vor.
 						</p>
 					</div>
 				</div>
@@ -280,8 +280,8 @@
 			<section class="section cta-section">
 				<div class="cta-content">
 					<p class="cta-text">
-						Lassen Sie uns gerne bei einem unverbindlichen Kennenlerntermin besprechen, wie Ihr Kind
-						bei uns bestmöglich gefördert und betreut werden kann.
+						Lasst uns gerne bei einem unverbindlichen Kennenlerntermin besprechen, wie euer Kind bei
+						uns bestmöglich gefördert und betreut werden kann.
 					</p>
 					<a href="/kontakt" class="cta-button">Kontakt aufnehmen</a>
 				</div>
@@ -750,4 +750,3 @@
 		}
 	}
 </style>
-

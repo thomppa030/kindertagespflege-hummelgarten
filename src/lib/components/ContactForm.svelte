@@ -67,8 +67,8 @@
 		<div class="zen-contact-header">
 			<h1>Kontakt</h1>
 			<p>
-				Ich freue mich über Ihre Nachricht. Nehmen Sie sich einen Moment Zeit, um mich zu
-				kontaktieren. Ich antworte Ihnen so bald wie möglich.
+				Ich freue mich über eure Nachricht. Nehmt euch einen Moment Zeit, um mich zu kontaktieren.
+				Ich antworte euch so bald wie möglich.
 			</p>
 		</div>
 		<form on:submit={handleSubmit} class="zen-contact-form">
@@ -88,7 +88,7 @@
 							<polyline points="22 4 12 14.01 9 11.01"></polyline>
 						</svg>
 					</div>
-					<p>Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich bald.</p>
+					<p>Eure Nachricht wurde erfolgreich gesendet. Ich melde mich bald.</p>
 				</div>
 			{/if}
 
@@ -106,7 +106,7 @@
 						id="name"
 						bind:value={formData.name}
 						required
-						placeholder="Wie darf ich Sie nennen?"
+						placeholder="Wie möchtet ihr genannt werden?"
 						disabled={sending}
 					/>
 				</div>
@@ -118,7 +118,7 @@
 						id="email"
 						bind:value={formData.email}
 						required
-						placeholder="Ihre Kontakt-E-Mail"
+						placeholder="Eure Kontakt-E-Mail"
 						disabled={sending}
 					/>
 				</div>
@@ -141,7 +141,7 @@
 						bind:value={formData.message}
 						required
 						rows="5"
-						placeholder="Was möchten Sie uns mitteilen?"
+						placeholder="Was möchtet ihr uns mitteilen?"
 						disabled={sending}
 					></textarea>
 				</div>
