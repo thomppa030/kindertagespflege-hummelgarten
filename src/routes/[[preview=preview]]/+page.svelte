@@ -78,7 +78,7 @@
 	});
 </script>
 
-<SEO 
+<SEO
 	title="Liebevolle Kindertagespflege in Oranienburg"
 	description="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
 	canonical="/"
@@ -86,8 +86,6 @@
 />
 
 <div class="page-wrapper">
-	<FloatingBanner />
-
 	<!-- Custom Hero Section -->
 	<section class="custom-hero">
 		{#if visible}
