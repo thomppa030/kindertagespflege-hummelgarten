@@ -83,6 +83,7 @@
 	description="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
 	canonical="/"
 	jsonLd={structuredData}
+	googleVerification="2QRx2JuSv_dv-r-S2BhlwbTk9zhbeXOW3V4Ewkl2jY0"
 />
 
 <div class="page-wrapper">
