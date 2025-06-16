@@ -2,8 +2,9 @@
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
 	import Hero from '$lib/components/Hero.svelte';
-	import FloatingBanner from '$lib/components/FloatingBanner.svelte';
 	import BentoGallery from '$lib/components/BentoGallery.svelte';
+	import SEO from '$lib/components/SEO.svelte';
+	import { getOrganizationSchema, getLocalBusinessSchema } from '$lib/seo/structuredData';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
@@ -13,6 +14,9 @@
 
 	let visible = false;
 	let sections = [];
+
+	// Structured data for homepage
+	const structuredData = [getOrganizationSchema(), getLocalBusinessSchema()];
 
 	// Gallery images
 	const galleryImages = [
@@ -74,16 +78,14 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Kindertagespflege Hummelgarten - Liebevolle Betreuung in Oranienburg</title>
-	<meta
-		name="description"
-		content="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
-	/>
-</svelte:head>
+<SEO 
+	title="Liebevolle Kindertagespflege in Oranienburg"
+	description="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
+	canonical="/"
+	jsonLd={structuredData}
+/>
 
 <div class="page-wrapper">
-<FloatingBanner />
 
 <!-- Custom Hero Section -->
 <section class="custom-hero">
