@@ -166,6 +166,8 @@
 							src="/PicturesHome/20250514_094452.jpg"
 							alt="Kinder spielen im Hummelgarten"
 							class="hero-main-image"
+							loading="eager"
+							fetchpriority="high"
 						/>
 					</div>
 				</div>

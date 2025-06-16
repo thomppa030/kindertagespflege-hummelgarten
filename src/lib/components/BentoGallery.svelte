@@ -5,6 +5,7 @@
   
   let featuredIndex = 0;
   let galleryElement;
+  let loadedImages = new Set();
   
   const handleImageHover = (index) => {
     featuredIndex = index;
@@ -15,9 +16,14 @@
     // Or reset to first image: featuredIndex = 0;
   };
   
+  const handleImageLoad = (index) => {
+    loadedImages.add(index);
+    loadedImages = loadedImages; // Trigger reactivity
+  };
+  
   onMount(() => {
-    // Preload images for smoother transitions
-    images.forEach(image => {
+    // Preload only the first 3 images for faster initial load
+    images.slice(0, 3).forEach(image => {
       const img = new Image();
       img.src = image.src;
     });
@@ -30,15 +36,18 @@
       <button
         class="gallery-item"
         class:featured={featuredIndex === index}
+        class:loaded={loadedImages.has(index)}
         on:mouseenter={() => handleImageHover(index)}
         on:mouseleave={handleImageLeave}
         on:focus={() => handleImageHover(index)}
         style="--delay: {index * 0.05}s"
       >
+        <div class="image-placeholder" aria-hidden="true"></div>
         <img 
           src={image.src} 
           alt={image.alt}
-          loading="lazy"
+          loading={index < 3 ? "eager" : "lazy"}
+          on:load={() => handleImageLoad(index)}
         />
         <div class="image-overlay">
           <span class="image-caption">{image.caption || ''}</span>
@@ -77,8 +86,34 @@
     z-index: 1;
     border: none;
     padding: 0;
-    background: #fff;
+    background: #f0f0f0;
     animation: fadeIn 0.6s ease-out var(--delay) both;
+  }
+
+  .image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 1;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .gallery-item.loaded .image-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   @keyframes fadeIn {
@@ -181,6 +216,14 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .gallery-item.loaded img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
   }
 
   .gallery-item:hover img {
