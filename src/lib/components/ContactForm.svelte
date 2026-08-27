@@ -166,36 +166,37 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		min-height: 100vh;
-		padding: 0;
+		min-height: 100dvh;
+		padding: var(--space-2xl) var(--space-md);
 		box-sizing: border-box;
+		background-color: var(--color-background);
 	}
 
 	.zen-contact-wrapper {
 		width: 100%;
 		max-width: 800px;
-		background-color: white;
-		border-radius: 1.5rem;
-		box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
-		padding: 4rem;
-		transition: all 0.3s ease;
+		background-color: var(--color-surface);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-lg);
+		padding: var(--space-4xl);
+		transition: box-shadow var(--transition-base);
 	}
 
 	.zen-contact-header {
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.zen-contact-header h1 {
-		font-size: 2.5rem;
-		color: #2c3e50;
-		margin-bottom: 1rem;
-		font-weight: 300;
+		font-size: var(--text-4xl);
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-md);
+		font-weight: 400;
 	}
 
 	.zen-contact-header p {
-		color: #7f8c8d;
-		font-size: 1.125rem;
+		color: var(--color-text-secondary);
+		font-size: var(--text-lg);
 		max-width: 500px;
 		margin: 0 auto;
 		line-height: 1.6;
@@ -217,36 +218,38 @@
 	}
 
 	label {
-		margin-bottom: 0.75rem;
-		color: #34495e;
-		font-weight: 500;
-		font-size: 0.9rem;
+		margin-bottom: var(--space-sm);
+		color: var(--color-text-primary);
+		font-weight: 600;
+		font-size: var(--text-sm);
 	}
 
 	.zen-optional {
-		color: #95a5a6;
-		font-size: 0.8rem;
-		margin-left: 0.5rem;
+		color: var(--color-text-secondary);
+		font-size: var(--text-xs);
+		margin-left: var(--space-xs);
+		font-weight: 400;
 	}
 
 	input,
 	textarea {
 		width: 100%;
-		padding: 1rem;
-		border: 1px solid #e0e6ed;
-		border-radius: 0.75rem;
-		font-size: 1rem;
-		background-color: #f9fafb;
-		transition: all 0.3s ease;
+		padding: var(--space-md);
+		border: 1px solid var(--color-sand);
+		border-radius: var(--radius-md);
+		font-size: var(--text-base);
+		background-color: var(--color-cream);
+		transition: border-color var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
 		font-family: inherit;
+		color: var(--color-text-primary);
 	}
 
 	input:focus,
 	textarea:focus {
 		outline: none;
-		border-color: #3498db;
-		box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-		background-color: white;
+		border-color: var(--color-accent);
+		box-shadow: var(--focus-ring);
+		background-color: var(--color-warm-white);
 	}
 
 	textarea {

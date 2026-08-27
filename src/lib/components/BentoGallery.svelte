@@ -20,6 +20,13 @@
     loadedImages.add(index);
     loadedImages = loadedImages; // Trigger reactivity
   };
+
+  // Svelte action: covers the case where the image is already complete
+  // (served from cache) by the time this element mounts, since the
+  // browser's `load` event never fires again for an already-loaded image.
+  const markLoadedIfComplete = (node, onLoaded) => {
+    if (node.complete) onLoaded();
+  };
   
   onMount(() => {
     // Preload only the first 3 images for faster initial load
@@ -43,11 +50,12 @@
         style="--delay: {index * 0.05}s"
       >
         <div class="image-placeholder" aria-hidden="true"></div>
-        <img 
-          src={image.src} 
+        <img
+          src={image.src}
           alt={image.alt}
           loading={index < 3 ? "eager" : "lazy"}
           on:load={() => handleImageLoad(index)}
+          use:markLoadedIfComplete={() => handleImageLoad(index)}
         />
         <div class="image-overlay">
           <span class="image-caption">{image.caption || ''}</span>
@@ -60,8 +68,8 @@
 <style>
   .bento-gallery {
     width: 100%;
-    padding: 2rem;
-    background: #FAFAFA;
+    padding: var(--space-xl);
+    background: var(--color-surface);
   }
 
   .gallery-grid {

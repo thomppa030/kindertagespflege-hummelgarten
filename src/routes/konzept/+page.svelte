@@ -1,6 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
+	import ImageText from '$lib/components/ImageText.svelte';
+	import Card from '$lib/components/Card.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 
 	let visible = false;
 	let sections = [];
@@ -8,7 +11,6 @@
 	onMount(() => {
 		visible = true;
 
-		// Intersection observer for fade-in animations
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -23,7 +25,6 @@
 			}
 		);
 
-		// Small delay to ensure DOM is ready
 		setTimeout(() => {
 			sections = document.querySelectorAll('.section');
 			sections.forEach((section) => observer.observe(section));
@@ -45,310 +46,225 @@
 
 <div class="konzept-page">
 	{#if visible}
-		<!-- Hero Section -->
-		<section class="hero" in:fade={{ duration: 800 }}>
+		<section class="hero" in:fade={{ duration: 600 }}>
 			<div class="hero-content">
+				<p class="hero-eyebrow">Unser pädagogisches Konzept</p>
 				<h1 class="hero-title">Kindertagespflege in familiärer Atmosphäre</h1>
 				<p class="hero-subtitle">Liebevolle Ganztagsbetreuung für bis zu 5 Kinder</p>
 			</div>
-			<div class="hero-decoration">
-				<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-					<path
-						fill="#8CC152"
-						fill-opacity="0.1"
-						d="M47.5,-65.2C60.2,-56.8,68.1,-41.1,71.3,-24.8C74.5,-8.5,73,8.4,67.3,23.2C61.6,38,51.7,50.7,38.8,59.1C25.9,67.5,10,71.6,-6.9,69.9C-23.8,68.2,-41.7,60.7,-54.6,48.9C-67.5,37.1,-75.4,21,-76.3,4.3C-77.2,-12.4,-71.1,-29.8,-60.4,-43.1C-49.7,-56.4,-34.4,-65.6,-18.5,-68.5C-2.6,-71.4,13.9,-68,26.8,-60.2C39.7,-52.4,48.9,-40.3,47.5,-65.2Z"
-						transform="translate(100 100)"
-					/>
-				</svg>
-			</div>
 		</section>
-
-		<!-- Main Content -->
-		<div class="content-wrapper">
-			<!-- Home Section -->
-			<section class="section home-section visible">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">🏡</span>
-						Unser Zuhause wird zu ihrem zweiten Zuhause
-					</h2>
-					<p class="lead-text">
-						In meiner kleinen, familiären Kindertagespflege betreue ich maximal 5 Kinder in einer
-						warmen, häuslichen Atmosphäre. Das Erdgeschoss meines Einfamilienhauses wurde speziell
-						für die Bedürfnisse der Kinder eingerichtet.
-					</p>
-
-					<div class="features-grid">
-						<div class="feature-card">
-							<h3>40 qm Spielparadies</h3>
-							<p>Großes Wohn- und Spielzimmer mit angrenzendem Wintergarten</p>
-						</div>
-						<div class="feature-card">
-							<h3>Ruheoase</h3>
-							<p>Separates Schlafzimmer für erholsame Ruhepausen</p>
-						</div>
-						<div class="feature-card">
-							<h3>Gemeinsam kochen</h3>
-							<p>Offene Küche zum gemeinsamen Kochen und Essen</p>
-						</div>
-						<div class="feature-card">
-							<h3>Direkter Gartenzugang</h3>
-							<p>Nahtloses Innen-Außen-Spiel bei jedem Wetter</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Garden Section -->
-			<section class="section garden-section">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">🌱</span>
-						Naturerlebnis direkt vor der Haustür
-					</h2>
-
-					<div class="text-image-block">
-						<div class="text-content">
-							<h3>Unser Garten als grünes Klassenzimmer</h3>
-							<p>
-								Hier erleben die Kinder den kompletten Naturkreislauf mit allen Sinnen – vom
-								Samenkorn bis zur selbstgekochten Suppe.
-							</p>
-
-							<ul class="nature-list">
-								<li>Säen wir Gemüse und Blumen</li>
-								<li>Beobachten das Wachstum durch die Jahreszeiten</li>
-								<li>Pflegen unsere Beete und lernen Verantwortung</li>
-								<li>Ernten und verarbeiten unser eigenes Gemüse</li>
-								<li>Entdecken Insekten auf der bunten Blumenwiese</li>
-							</ul>
-						</div>
-
-						<div class="image-placeholder garden-image">
-							<img
-								src="/PicturesHome/20250514_094452.jpg"
-								alt="Garten der Kindertagespflege Hummelgarten mit Gemüsebeeten und Spielbereich"
-								loading="lazy"
-							/>
-						</div>
-					</div>
-
-					<div class="movement-block">
-						<h3>Bewegung und Entwicklung</h3>
-						<div class="movement-features">
-							<span class="feature-tag">Vielfältige Untergründe</span>
-							<span class="feature-tag">Kirschbaum-Hügel</span>
-							<span class="feature-tag">Schaukel & Sandkasten</span>
-							<span class="feature-tag">Ruhige Rückzugsorte</span>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Animals Section -->
-			<section class="section animals-section">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">🐾</span>
-						Tierische Begleiter als Co-Pädagogen
-					</h2>
-
-					<div class="animals-intro">
-						<p>
-							Mein Hund Dio (fast 14 Jahre, ausgebildet und geimpft) und Katze Kelly (1,5 Jahre,
-							geimpft) leben mit uns zusammen.
-						</p>
-					</div>
-
-					<div class="learning-cards">
-						<div class="learning-card">
-							<h4>Respektvolle Tierbegegnungen</h4>
-						</div>
-						<div class="learning-card">
-							<h4>Empathie und Fürsorglichkeit</h4>
-						</div>
-						<div class="learning-card">
-							<h4>Verantwortung im Umgang mit Lebewesen</h4>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Forest Section -->
-			<section class="section forest-section">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">🌲</span>
-						Abenteuer vor der Haustür
-					</h2>
-
-					<div class="forest-content">
-						<h3>Wald und Wiesen als Erfahrungsraum</h3>
-						<p class="forest-intro">
-							Das Lindsche Luch und der Wald liegen direkt vor unserer Tür. Mit unserem Krippenwagen
-							erkunden wir regelmäßig:
-						</p>
-
-						<div class="exploration-grid">
-							<div class="exploration-item">
-								<span class="season-icon">🍂</span>
-								<p>Die vier Jahreszeiten im Wald</p>
-							</div>
-							<div class="exploration-item">
-								<span class="season-icon">🦌</span>
-								<p>Heimische Tiere und Pflanzen</p>
-							</div>
-							<div class="exploration-item">
-								<span class="season-icon">🍃</span>
-								<p>Naturmaterialien zum Spielen und Basteln</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Partnership Section -->
-			<section class="section partnership-section">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">🤝</span>
-						Soziales Lernen durch Kooperation
-					</h2>
-
-					<div class="partnership-block">
-						<h3>Partnerschaft mit der Kindertagespflege Lindenblatt</h3>
-						<p>Durch regelmäßige gemeinsame Aktivitäten erweitern wir den sozialen Horizont:</p>
-
-						<div class="benefits-list">
-							<div class="benefit">
-								<span>Spielen in größeren Gruppen</span>
-							</div>
-							<div class="benefit">
-								<span>Neue Freundschaften knüpfen</span>
-							</div>
-							<div class="benefit">
-								<span>Gemeinsame Waldausflüge und Unternehmungen</span>
-							</div>
-							<div class="benefit">
-								<span>Mehr Abwechslung im Alltag</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Education Section -->
-			<section class="section education-section">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">📚</span>
-						Ganzheitliche Förderung nach dem Bildungsplan des Landes Brandenburg
-					</h2>
-
-					<div class="education-content">
-						<p>
-							Alle Bereiche des aktuellen Bildungsplans fließen spielerisch in unseren Alltag ein.
-							Das ausführliche pädagogische Konzept stelle ich euch gerne persönlich vor.
-						</p>
-					</div>
-				</div>
-			</section>
-
-			<!-- Hours Section -->
-			<section class="section hours-section">
-				<div class="section-content">
-					<h2 class="section-title">
-						<span class="icon">🕐</span>
-						Betreuungszeiten
-					</h2>
-
-					<div class="hours-grid">
-						<div class="hours-card primary">
-							<h3>Öffnungszeiten</h3>
-							<p class="hours-time">Montag bis Freitag</p>
-							<p class="hours-time">7:00 bis 16:00 Uhr</p>
-						</div>
-						<div class="hours-card">
-							<h3>Flexibilität</h3>
-							<p>Frühere oder spätere Zeiten nach individueller Absprache möglich</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- CTA Section -->
-			<section class="section cta-section">
-				<div class="cta-content">
-					<p class="cta-text">
-						Lasst uns gerne bei einem unverbindlichen Kennenlerntermin besprechen, wie euer Kind bei
-						uns bestmöglich gefördert und betreut werden kann.
-					</p>
-					<a href="/kontakt" class="cta-button">Kontakt aufnehmen</a>
-				</div>
-			</section>
-		</div>
 	{/if}
+
+	<!-- Home -->
+	<section class="section home-section visible">
+		<div class="content-wrapper">
+			<div class="section-marker"><Icon name="home" /></div>
+			<h2 class="section-title">Unser Zuhause wird zu ihrem zweiten Zuhause</h2>
+			<p class="lead-text">
+				In meiner kleinen, familiären Kindertagespflege betreue ich maximal 5 Kinder in einer
+				warmen, häuslichen Atmosphäre. Das Erdgeschoss meines Einfamilienhauses wurde speziell für
+				die Bedürfnisse der Kinder eingerichtet.
+			</p>
+
+			<div class="features-grid">
+				<Card title="40 qm Spielparadies" description="Großes Wohn- und Spielzimmer mit angrenzendem Wintergarten" />
+				<Card title="Ruheoase" description="Separates Schlafzimmer für erholsame Ruhepausen" />
+				<Card title="Gemeinsam kochen" description="Offene Küche zum gemeinsamen Kochen und Essen" />
+				<Card title="Direkter Gartenzugang" description="Nahtloses Innen-Außen-Spiel bei jedem Wetter" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Garden -->
+	<section class="section garden-section">
+		<div class="content-wrapper">
+			<div class="section-marker"><Icon name="leaf" /></div>
+			<h2 class="section-title">Naturerlebnis direkt vor der Haustür</h2>
+
+			<ImageText
+				imageUrl="/PicturesHome/optimized/20250514_094452.jpg"
+				imageAlt="Garten der Kindertagespflege Hummelgarten mit Gemüsebeeten und Spielbereich"
+				title="Unser Garten als grünes Klassenzimmer"
+			>
+				<p>
+					Hier erleben die Kinder den kompletten Naturkreislauf mit allen Sinnen – vom Samenkorn
+					bis zur selbstgekochten Suppe.
+				</p>
+				<ul class="nature-list">
+					<li>Säen von Gemüse und Blumen</li>
+					<li>Beobachten des Wachstums durch die Jahreszeiten</li>
+					<li>Pflegen der Beete und Übernehmen von Verantwortung</li>
+					<li>Ernten und Verarbeiten des eigenen Gemüses</li>
+					<li>Entdecken von Insekten auf der bunten Blumenwiese</li>
+				</ul>
+			</ImageText>
+
+			<p class="movement-lead">Bewegung und Entwicklung entstehen dabei nebenbei, durch:</p>
+			<p class="movement-tags">
+				Vielfältige Untergründe · Kirschbaum-Hügel · Schaukel &amp; Sandkasten · Ruhige
+				Rückzugsorte
+			</p>
+		</div>
+	</section>
+
+	<!-- Animals -->
+	<section class="section animals-section">
+		<div class="content-wrapper content-wrapper--narrow">
+			<div class="section-marker"><Icon name="paw" /></div>
+			<h2 class="section-title">Tierische Begleiterin als Co-Pädagogin</h2>
+			<p class="lead-text lead-text--center">
+				Meine Katze Kelly (1,5 Jahre, geimpft) lebt mit uns zusammen. Der tägliche, respektvolle
+				Umgang mit ihr gehört fest zu unserem Alltag.
+			</p>
+
+			<div class="learning-cards">
+				<Card title="Respektvolle Tierbegegnungen" />
+				<Card title="Empathie und Fürsorglichkeit" />
+				<Card title="Verantwortung im Umgang mit Lebewesen" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Forest -->
+	<section class="section forest-section">
+		<div class="content-wrapper">
+			<div class="section-marker"><Icon name="tree" /></div>
+			<h2 class="section-title">Abenteuer vor der Haustür</h2>
+
+			<div class="forest-layout">
+				<div>
+					<h3>Wald und Wiesen als Erfahrungsraum</h3>
+					<p class="forest-intro">
+						Das Lindsche Luch und der Wald liegen direkt vor unserer Tür. Mit unserem
+						Krippenwagen erkunden wir regelmäßig:
+					</p>
+				</div>
+				<ul class="exploration-list">
+					<li>Die vier Jahreszeiten im Wald</li>
+					<li>Heimische Tiere und Pflanzen</li>
+					<li>Naturmaterialien zum Spielen und Basteln</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Partnership -->
+	<section class="section partnership-section">
+		<div class="content-wrapper">
+			<div class="section-marker"><Icon name="community" /></div>
+			<h2 class="section-title">Soziales Lernen durch Kooperation</h2>
+
+			<div class="partnership-layout">
+				<div>
+					<h3>Partnerschaft mit der Kindertagespflege Lindenblatt</h3>
+					<p>Durch regelmäßige gemeinsame Aktivitäten erweitern wir den sozialen Horizont:</p>
+				</div>
+				<ul class="benefits-list">
+					<li>Spielen in größeren Gruppen</li>
+					<li>Neue Freundschaften knüpfen</li>
+					<li>Gemeinsame Waldausflüge und Unternehmungen</li>
+					<li>Mehr Abwechslung im Alltag</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Education -->
+	<section class="section education-section">
+		<div class="content-wrapper content-wrapper--narrow">
+			<div class="section-marker"><Icon name="book" /></div>
+			<h2 class="section-title">Förderung nach dem Bildungsplan des Landes Brandenburg</h2>
+			<p class="lead-text lead-text--center">
+				Alle Bereiche des aktuellen Bildungsplans fließen spielerisch in unseren Alltag ein. Das
+				ausführliche pädagogische Konzept stelle ich Ihnen gerne persönlich vor.
+			</p>
+		</div>
+	</section>
+
+	<!-- Hours -->
+	<section class="section hours-section">
+		<div class="content-wrapper">
+			<div class="section-marker"><Icon name="clock" /></div>
+			<h2 class="section-title">Betreuungszeiten</h2>
+
+			<div class="hours-layout">
+				<div class="hours-primary">
+					<p class="hours-label">Öffnungszeiten</p>
+					<p class="hours-time">Montag bis Freitag, 7:00–16:00 Uhr</p>
+				</div>
+				<p class="hours-note">
+					Frühere oder spätere Zeiten sind nach individueller Absprache möglich.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="section cta-section">
+		<div class="content-wrapper content-wrapper--narrow">
+			<div class="cta-content">
+				<p class="cta-text">
+					Lassen Sie uns gerne bei einem unverbindlichen Kennenlerntermin besprechen, wie Ihr Kind
+					bei uns bestmöglich gefördert und betreut werden kann.
+				</p>
+				<a href="/kontakt" class="button">Kontakt aufnehmen</a>
+			</div>
+		</div>
+	</section>
 </div>
 
 <style>
 	.konzept-page {
-		min-height: 100vh;
-		background-color: #fafafa;
+		background-color: var(--color-background);
 	}
 
-	/* Hero Section */
+	/* Hero */
 	.hero {
-		position: relative;
-		padding: 8rem 2rem 6rem;
+		padding: var(--space-4xl) var(--space-lg) var(--space-3xl);
 		text-align: center;
-		overflow: hidden;
 	}
 
 	.hero-content {
-		position: relative;
-		z-index: 2;
-		max-width: 800px;
+		max-width: 700px;
 		margin: 0 auto;
+	}
+
+	.hero-eyebrow {
+		font-size: var(--text-sm);
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-terracotta);
+		margin-bottom: var(--space-sm);
 	}
 
 	.hero-title {
-		font-size: clamp(2rem, 5vw, 3.5rem);
-		font-weight: 300;
-		color: #2d3436;
-		margin-bottom: 1rem;
+		font-size: var(--text-4xl);
 		line-height: 1.2;
+		margin-bottom: var(--space-md);
 	}
 
 	.hero-subtitle {
-		font-size: clamp(1.2rem, 3vw, 1.5rem);
-		color: #636e72;
-		font-weight: 300;
+		font-size: var(--text-xl);
+		color: var(--color-text-secondary);
 	}
 
-	.hero-decoration {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 600px;
-		height: 600px;
-		z-index: 1;
-		opacity: 0.5;
-	}
-
-	/* Content Wrapper */
+	/* Content wrapper */
 	.content-wrapper {
-		max-width: 1200px;
+		max-width: 1100px;
 		margin: 0 auto;
-		padding: 0 2rem;
+		padding: 0 var(--space-lg);
 	}
 
-	/* Section Styles */
+	.content-wrapper--narrow {
+		max-width: 750px;
+	}
+
 	.section {
-		margin-bottom: 6rem;
+		padding: var(--space-3xl) 0;
 		opacity: 0;
-		transform: translateY(30px);
-		transition: all 0.8s ease-out;
+		transform: translateY(24px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 	}
 
 	.section.visible {
@@ -356,397 +272,185 @@
 		transform: translateY(0);
 	}
 
-	.section-content {
-		background: white;
-		border-radius: 20px;
-		padding: 3rem;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+	.section:nth-child(odd) {
+		background-color: var(--color-surface);
+	}
+
+	.section-marker {
+		margin-bottom: var(--space-md);
 	}
 
 	.section-title {
-		font-size: 2rem;
-		font-weight: 300;
-		color: #2d3436;
-		margin-bottom: 2rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.section-title .icon {
-		font-size: 2.5rem;
-		filter: grayscale(20%);
+		font-size: var(--text-2xl);
+		margin-bottom: var(--space-xl);
+		max-width: 40ch;
 	}
 
 	.lead-text {
-		font-size: 1.1rem;
+		font-size: var(--text-lg);
 		line-height: 1.8;
-		color: #636e72;
-		margin-bottom: 2rem;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--space-xl);
+		max-width: 65ch;
 	}
 
-	/* Features Grid */
+	.lead-text--center {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.features-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
-		margin-top: 2rem;
-	}
-
-	.feature-card {
-		background: #f8f9fa;
-		padding: 2rem;
-		border-radius: 15px;
-		transition: transform 0.3s ease;
-	}
-
-	.feature-card:hover {
-		transform: translateY(-5px);
-	}
-
-	.feature-card h3 {
-		font-size: 1.2rem;
-		font-weight: 500;
-		color: #2d3436;
-		margin-bottom: 0.5rem;
-	}
-
-	.feature-card p {
-		color: #636e72;
-		line-height: 1.6;
-	}
-
-	/* Text Image Block */
-	.text-image-block {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
-		align-items: center;
-		margin: 2rem 0;
-	}
-
-	.text-content h3 {
-		font-size: 1.5rem;
-		font-weight: 400;
-		color: #2d3436;
-		margin-bottom: 1rem;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-xl) var(--space-2xl);
 	}
 
 	.nature-list {
 		list-style: none;
 		padding: 0;
-		margin: 1.5rem 0;
+		margin: var(--space-lg) 0 0;
 	}
 
 	.nature-list li {
-		padding: 0.5rem 0;
-		padding-left: 2rem;
-		position: relative;
-		color: #636e72;
+		padding: var(--space-xs) 0;
+		border-bottom: 1px solid var(--color-sand);
+		color: var(--color-text-secondary);
 		line-height: 1.6;
 	}
 
-	.nature-list li::before {
-		content: '🌿';
-		position: absolute;
-		left: 0;
+	.nature-list li:last-child {
+		border-bottom: none;
 	}
 
-	.image-placeholder {
-		border-radius: 15px;
-		overflow: hidden;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	.movement-lead {
+		margin-top: var(--space-2xl);
+		font-weight: 600;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-sm);
 	}
 
-	.image-placeholder img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	/* Movement Block */
-	.movement-block {
-		background: #f0f9ff;
-		padding: 2rem;
-		border-radius: 15px;
-		margin-top: 2rem;
-	}
-
-	.movement-block h3 {
-		font-size: 1.3rem;
-		font-weight: 400;
-		color: #2d3436;
-		margin-bottom: 1.5rem;
-	}
-
-	.movement-features {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-	}
-
-	.feature-tag {
-		background: white;
-		padding: 0.5rem 1.5rem;
-		border-radius: 25px;
-		color: #636e72;
-		font-size: 0.95rem;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-	}
-
-	/* Animals Section */
-	.animals-intro {
-		text-align: center;
-		font-size: 1.1rem;
-		color: #636e72;
-		margin-bottom: 2rem;
+	.movement-tags {
+		color: var(--color-text-secondary);
 		line-height: 1.8;
 	}
 
 	.learning-cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 2rem;
-		margin-top: 2rem;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-xl);
+		margin-top: var(--space-xl);
 	}
 
-	.learning-card {
-		text-align: center;
-		padding: 2rem;
-		background: #fff9e6;
-		border-radius: 15px;
-		transition: transform 0.3s ease;
+	.forest-layout,
+	.partnership-layout {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-3xl);
+		align-items: start;
 	}
 
-	.learning-card:hover {
-		transform: translateY(-5px);
-	}
-
-	.card-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
-
-	.learning-card h4 {
-		font-weight: 400;
-		color: #2d3436;
-		font-size: 1.1rem;
-	}
-
-	/* Forest Section */
-	.forest-content {
-		background: #e8f5e9;
-		padding: 2.5rem;
-		border-radius: 15px;
-	}
-
-	.forest-content h3 {
-		font-size: 1.5rem;
-		font-weight: 400;
-		color: #2d3436;
-		margin-bottom: 1rem;
+	.forest-layout h3,
+	.partnership-layout h3 {
+		font-size: var(--text-xl);
+		margin-bottom: var(--space-md);
 	}
 
 	.forest-intro {
-		color: #636e72;
-		margin-bottom: 2rem;
+		color: var(--color-text-secondary);
 		line-height: 1.8;
-	}
-
-	.exploration-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
-	}
-
-	.exploration-item {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		background: white;
-		padding: 1.5rem;
-		border-radius: 10px;
-	}
-
-	.season-icon {
-		font-size: 2rem;
-	}
-
-	.exploration-item p {
 		margin: 0;
-		color: #636e72;
 	}
 
-	/* Partnership Section */
-	.partnership-block {
-		background: #f3e5f5;
-		padding: 2.5rem;
-		border-radius: 15px;
-	}
-
-	.partnership-block h3 {
-		font-size: 1.5rem;
-		font-weight: 400;
-		color: #2d3436;
-		margin-bottom: 1rem;
-	}
-
-	.partnership-block > p {
-		color: #636e72;
-		margin-bottom: 2rem;
-		line-height: 1.8;
-	}
-
+	.exploration-list,
 	.benefits-list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1.5rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
-	.benefit {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		background: white;
-		padding: 1.2rem;
-		border-radius: 10px;
+	.exploration-list li,
+	.benefits-list li {
+		padding: var(--space-md) 0;
+		border-top: 1px solid var(--color-sand);
+		color: var(--color-text-secondary);
 	}
 
-	.benefit-icon {
-		font-size: 1.5rem;
+	.exploration-list li:last-child,
+	.benefits-list li:last-child {
+		border-bottom: 1px solid var(--color-sand);
 	}
 
-	.benefit span:last-child {
-		color: #636e72;
-	}
-
-	/* Education Section */
-	.education-content {
-		background: #e3f2fd;
-		padding: 2.5rem;
-		border-radius: 15px;
-		text-align: center;
-	}
-
-	.education-content p {
-		font-size: 1.1rem;
-		color: #636e72;
+	.partnership-layout > div p {
+		color: var(--color-text-secondary);
 		line-height: 1.8;
-		max-width: 700px;
-		margin: 0 auto;
+		margin: 0;
 	}
 
-	/* Hours Section */
-	.hours-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+	.hours-layout {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: var(--space-xl);
+		border-top: 2px solid var(--color-terracotta);
+		padding-top: var(--space-lg);
 	}
 
-	.hours-card {
-		background: #f8f9fa;
-		padding: 2.5rem;
-		border-radius: 15px;
-		text-align: center;
+	.hours-primary {
+		flex: 1 1 320px;
 	}
 
-	.hours-card.primary {
-		background: #8cc152;
-		color: white;
-	}
-
-	.hours-card h3 {
-		font-size: 1.5rem;
-		font-weight: 400;
-		margin-bottom: 1rem;
-	}
-
-	.hours-card.primary h3 {
-		color: white;
+	.hours-label {
+		font-weight: 600;
+		color: var(--color-text-primary);
+		margin: 0 0 var(--space-xs);
 	}
 
 	.hours-time {
-		font-size: 1.2rem;
-		margin: 0.5rem 0;
+		font-size: var(--text-xl);
+		color: var(--color-accent);
+		margin: 0;
 	}
 
-	.hours-card.primary .hours-time {
-		color: white;
-		font-weight: 500;
-	}
-
-	.hours-card:not(.primary) p {
-		color: #636e72;
+	.hours-note {
+		flex: 1 1 320px;
+		color: var(--color-text-secondary);
 		line-height: 1.6;
+		margin: 0;
 	}
 
-	/* CTA Section */
-	.cta-section {
-		margin-top: 4rem;
-		margin-bottom: 4rem;
-	}
-
+	/* CTA */
 	.cta-content {
-		background: linear-gradient(135deg, #8cc152 0%, #6fa73d 100%);
-		padding: 4rem 3rem;
-		border-radius: 20px;
 		text-align: center;
-		color: white;
+		padding: var(--space-xl) 0;
 	}
 
 	.cta-text {
-		font-size: 1.2rem;
+		font-size: var(--text-xl);
 		line-height: 1.8;
-		margin-bottom: 2rem;
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-xl);
 	}
 
-	.cta-button {
-		display: inline-block;
-		background: white;
-		color: #8cc152;
-		padding: 1rem 2.5rem;
-		border-radius: 50px;
-		text-decoration: none;
-		font-weight: 500;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	}
-
-	.cta-button:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-	}
-
-	/* Responsive Design */
+	/* Responsive */
 	@media (max-width: 768px) {
 		.hero {
-			padding: 5rem 1.5rem 4rem;
+			padding: var(--space-3xl) var(--space-md) var(--space-2xl);
 		}
 
-		.section-content {
-			padding: 2rem 1.5rem;
+		.section {
+			padding: var(--space-2xl) 0;
 		}
 
-		.text-image-block {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
-
-		.image-placeholder {
-			order: -1;
-			max-width: 100%;
-			height: 250px;
-		}
-
-		.hours-grid {
+		.features-grid,
+		.learning-cards {
 			grid-template-columns: 1fr;
 		}
 
-		.cta-content {
-			padding: 3rem 2rem;
+		.forest-layout,
+		.partnership-layout {
+			grid-template-columns: 1fr;
+			gap: var(--space-lg);
 		}
 	}
 </style>

@@ -1,12 +1,15 @@
 <script>
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
-	import Hero from '$lib/components/Hero.svelte';
 	import BentoGallery from '$lib/components/BentoGallery.svelte';
+	import Card from '$lib/components/Card.svelte';
+	import FloatingContact from '$lib/components/FloatingContact.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import ImageText from '$lib/components/ImageText.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import { getOrganizationSchema, getLocalBusinessSchema } from '$lib/seo/structuredData';
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
 	export let data;
 
@@ -21,33 +24,45 @@
 	// Gallery images
 	const galleryImages = [
 		{
-			src: '/PicturesHome/20250415_100440.jpg',
-			alt: 'Kinder beim Spielen im Garten',
+			src: '/PicturesHome/optimized/20250415_100440.jpg',
+			alt: 'Zwei Kinder buddeln gemeinsam im Gartenbeet der Kindertagespflege Hummelgarten',
 			caption: 'Gemeinsam im Garten'
 		},
-		{ src: '/PicturesHome/20250429_100707.jpg', alt: 'Kreatives Basteln', caption: 'Kreativzeit' },
 		{
-			src: '/PicturesHome/20250430_090229.jpg',
-			alt: 'Naturentdeckungen',
+			src: '/PicturesHome/optimized/20250429_100707.jpg',
+			alt: 'Kind bastelt mit bunter Pappe und Klebstoff am Basteltisch',
+			caption: 'Kreativzeit'
+		},
+		{
+			src: '/PicturesHome/optimized/20250430_090229.jpg',
+			alt: 'Kind untersucht ein Blatt mit einer Becherlupe im Garten',
 			caption: 'Naturentdeckungen'
 		},
-		{ src: '/PicturesHome/20250430_090247.jpg', alt: 'Spielzeit drinnen', caption: 'Spielzeit' },
 		{
-			src: '/PicturesHome/20250514_094452.jpg',
-			alt: 'Gemeinsames Lernen',
+			src: '/PicturesHome/optimized/20250430_090247.jpg',
+			alt: 'Kinder spielen gemeinsam mit Holzbausteinen im Wohnzimmer',
+			caption: 'Spielzeit drinnen'
+		},
+		{
+			src: '/PicturesHome/optimized/20250514_094452.jpg',
+			alt: 'Tagesmutter liest zwei Kindern aus einem Bilderbuch vor',
 			caption: 'Lernen mit Freude'
 		},
-		{ src: '/PicturesHome/20250514_094537(0).jpg', alt: 'Gartenzeit', caption: 'Unser Garten' },
 		{
-			src: '/PicturesHome/20250514_094803.jpg',
-			alt: 'Draußen aktiv',
-			caption: 'Bewegung im Freien'
-		},
-		{
-			src: '/PicturesHome/IMG-20250429-WA0017.jpg',
-			alt: 'Fröhliche Momente',
-			caption: 'Glückliche Kinder'
+			src: '/PicturesHome/optimized/20250514_094537(0).jpg',
+			alt: 'Kinder gießen Gemüsepflanzen im Hochbeet',
+			caption: 'Unser Garten'
 		}
+	];
+
+	const rhythmItems = [
+		{ time: '7:00', activity: 'Ankommen & erstes Frühstück' },
+		{ time: '8:00', activity: 'Wald oder Wiese, Kreativzeit, pädagogische Angebote' },
+		{ time: '9:00', activity: 'Zweites Frühstück' },
+		{ time: '11:00', activity: 'Mittagessen' },
+		{ time: '12:00', activity: 'Ruhezeit' },
+		{ time: '14:30', activity: 'Vesper' },
+		{ time: '', activity: 'Freispiel im Garten bis zur Abholzeit' }
 	];
 
 	onMount(() => {
@@ -79,293 +94,181 @@
 </script>
 
 <SEO
-	title="Liebevolle Kindertagespflege in Oranienburg"
-	description="Familiäre Kindertagespflege für bis zu 5 Kinder in Oranienburg. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
+	title="Liebevolle Kindertagespflege im Löwenberger Land"
+	description="Familiäre Kindertagespflege für bis zu 5 Kinder im Löwenberger Land. Naturverbunden, tiergestützt, mit eigenem Garten und Waldnähe. Betreuung von 7-16 Uhr."
 	canonical="/"
 	jsonLd={structuredData}
 	googleVerification="2QRx2JuSv_dv-r-S2BhlwbTk9zhbeXOW3V4Ewkl2jY0"
 />
 
 <div class="page-wrapper">
-	<!-- Custom Hero Section -->
+	<!-- Hero -->
 	<section class="custom-hero">
 		{#if visible}
-			<div class="hero-content" in:fade={{ duration: 800 }}>
+			<div class="container hero-content" in:fade={{ duration: 600 }}>
 				<div class="hero-text">
+					<p class="hero-eyebrow">Kindertagespflege im Löwenberger Land</p>
 					<h1 class="hero-title">
-						Willkommen im
+						Willkommen im<br />
 						<span class="highlight">Hummelgarten</span>
 					</h1>
 					<p class="hero-subtitle">
-						Wo kleine Entdecker in familiärer Atmosphäre<br />
-						wachsen, spielen und die Natur erleben
+						Wo kleine Entdecker in familiärer Atmosphäre wachsen, spielen und die Natur mit allen
+						Sinnen erleben.
 					</p>
-					<div class="hero-features">
-						<span class="feature-badge">
-							<svg
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-								<polyline points="22 4 12 14.01 9 11.01" />
-							</svg>
-							Bis zu 5 Kinder
-						</span>
-						<span class="feature-badge">
-							<svg
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-								<polyline points="22 4 12 14.01 9 11.01" />
-							</svg>
-							Eigener Garten
-						</span>
-						<span class="feature-badge">
-							<svg
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-								<polyline points="22 4 12 14.01 9 11.01" />
-							</svg>
-							Waldnähe
-						</span>
-					</div>
+					<p class="hero-features">Bis zu 5 Kinder · Eigener Garten · Waldnähe</p>
 					<div class="hero-actions">
-						<a href="/konzept" class="btn-primary">Unser Konzept entdecken</a>
-						<a href="/kontakt" class="btn-secondary">Kennenlernen vereinbaren</a>
+						<a href="/konzept" class="button">Unser Konzept entdecken</a>
+						<a href="/kontakt" class="button button--secondary">Kennenlernen vereinbaren</a>
 					</div>
 				</div>
 				<div class="hero-image">
-					<div class="image-decoration">
-						<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-							<path
-								fill="#8CC152"
-								fill-opacity="0.15"
-								d="M47.5,-65.2C60.2,-56.8,68.1,-41.1,71.3,-24.8C74.5,-8.5,73,8.4,67.3,23.2C61.6,38,51.7,50.7,38.8,59.1C25.9,67.5,10,71.6,-6.9,69.9C-23.8,68.2,-41.7,60.7,-54.6,48.9C-67.5,37.1,-75.4,21,-76.3,4.3C-77.2,-12.4,-71.1,-29.8,-60.4,-43.1C-49.7,-56.4,-34.4,-65.6,-18.5,-68.5C-2.6,-71.4,13.9,-68,26.8,-60.2C39.7,-52.4,48.9,-40.3,47.5,-65.2Z"
-								transform="translate(100 100)"
-							/>
-						</svg>
-					</div>
-					<!-- Placeholder for image -->
-					<div class="hero-image-container">
-						<img
-							src="/PicturesHome/20250514_094452.jpg"
-							alt="Kinder spielen im Hummelgarten"
-							class="hero-main-image"
-							loading="eager"
-							fetchpriority="high"
-						/>
-					</div>
+					<img
+						src="/PicturesHome/optimized/20250514_094452.jpg"
+						alt="Tagesmutter liest zwei Kindern aus einem Bilderbuch vor"
+						class="hero-main-image"
+						loading="eager"
+						fetchpriority="high"
+					/>
+					<img
+						src="/PicturesHome/optimized/20250430_090229.jpg"
+						alt="Kind untersucht ein Blatt mit einer Becherlupe im Garten"
+						class="hero-accent-image"
+						loading="eager"
+					/>
 				</div>
 			</div>
 		{/if}
 	</section>
 
-	<!-- Gallery Section -->
+	<!-- Gallery -->
 	<section class="home-section gallery-section visible">
 		<div class="container">
 			<h2 class="section-title">Eindrücke aus unserem Alltag</h2>
-			<p class="section-subtitle">Entdeckt die vielfältigen Momente in unserem Hummelgarten</p>
-			<BentoGallery images={galleryImages.slice(0, 6)} />
+			<p class="section-subtitle">Entdecken Sie die vielfältigen Momente im Hummelgarten</p>
 		</div>
+		<BentoGallery images={galleryImages.slice(0, 6)} />
 	</section>
 
-	<!-- Key Features Section -->
+	<!-- Key Features -->
 	<section class="home-section features-section visible">
-		<div class="container">
-			<h2 class="section-title">Was macht uns besonders?</h2>
+		<div class="container features-layout">
+			<div class="features-heading">
+				<p class="section-eyebrow">Warum Hummelgarten</p>
+				<h2 class="section-title text-left">Was uns besonders macht</h2>
+				<p class="features-intro">
+					Vier Dinge, die den Alltag bei uns prägen – vom ersten Frühstück bis zur Abholzeit.
+				</p>
+			</div>
 			<div class="features-grid">
-				<div class="feature-card">
-					<h3>Familiäre Atmosphäre</h3>
-					<p>
-						In unserem liebevoll eingerichteten Erdgeschoss fühlen sich Kinder wie zu Hause. Mit
-						eigenem Spielzimmer, Ruheraum und direktem Gartenzugang.
-					</p>
-				</div>
-				<div class="feature-card">
-					<h3>Naturverbunden</h3>
-					<p>
-						Unser großer Garten lädt zum Entdecken ein. Gemeinsam säen, pflegen und ernten wir - vom
-						Samenkorn bis zur selbstgekochten Suppe.
-					</p>
-				</div>
-				<div class="feature-card">
-					<h3>Tiergestützte Pädagogik</h3>
-					<p>
-						Unser Hund Dio und Katze Kelly begleiten den Alltag. Kinder lernen respektvollen Umgang
-						und entwickeln Empathie.
-					</p>
-				</div>
-				<div class="feature-card">
-					<h3>Waldabenteuer</h3>
-					<p>
-						Das Lindsche Luch liegt direkt vor der Tür. Mit dem Krippenwagen erkunden wir regelmäßig
-						Wald und Wiesen.
-					</p>
-				</div>
+				<Card
+					icon="home"
+					title="Familiäre Atmosphäre"
+					description="Im liebevoll eingerichteten Erdgeschoss fühlen sich Kinder wie zu Hause – mit eigenem Spielzimmer, Ruheraum und direktem Gartenzugang."
+				/>
+				<Card
+					icon="leaf"
+					title="Naturverbunden"
+					description="Unser großer Garten lädt zum Entdecken ein. Gemeinsam säen, pflegen und ernten wir – vom Samenkorn bis zur selbstgekochten Suppe."
+				/>
+				<Card
+					icon="paw"
+					title="Tiergestützte Pädagogik"
+					description="Katze Kelly begleitet den Alltag. Kinder lernen respektvollen Umgang und entwickeln Empathie."
+				/>
+				<Card
+					icon="tree"
+					title="Waldabenteuer"
+					description="Das Lindsche Luch liegt direkt vor der Tür. Mit dem Krippenwagen erkunden wir regelmäßig Wald und Wiesen."
+				/>
 			</div>
 		</div>
 	</section>
 
-	<!-- Daily Rhythm Preview -->
+	<!-- Daily Rhythm -->
 	<section class="home-section rhythm-section">
 		<div class="container">
-			<div class="rhythm-content">
-				<div class="rhythm-text">
-					<h2>Ein Tag bei uns</h2>
-					<p class="rhythm-intro">
-						Strukturierte Abläufe geben Sicherheit, während genug Raum für spontane Entdeckungen
-						bleibt.
-					</p>
-					<div class="rhythm-highlights">
+			<ImageText
+				imageUrl="/PicturesHome/optimized/20250430_090247.jpg"
+				imageAlt="Kinder spielen gemeinsam mit Holzbausteinen im Wohnzimmer"
+				reverse={true}
+			>
+				<h2 class="rhythm-title">Ein Tag bei uns</h2>
+				<p class="rhythm-intro">
+					Strukturierte Abläufe geben Sicherheit, während genug Raum für spontane Entdeckungen
+					bleibt.
+				</p>
+				<dl class="rhythm-list">
+					{#each rhythmItems as item}
 						<div class="rhythm-item">
-							<span class="time">7:00</span>
-							<span class="activity">Ankommen & 1. Frühstück</span>
+							{#if item.time}
+								<dt class="rhythm-time">{item.time}</dt>
+							{:else}
+								<dt class="rhythm-time rhythm-time--muted">danach</dt>
+							{/if}
+							<dd class="rhythm-activity">{item.activity}</dd>
 						</div>
-						<div class="rhythm-item">
-							<span class="time">8:00</span>
-							<span class="activity"
-								>Start in den Wald oder die Wiesen, Kreativzeit, pädagogische Angebote</span
-							>
-						</div>
-						<div class="rhythm-item">
-							<span class="time">9:00</span>
-							<span class="activity">2. Frühstück</span>
-						</div>
-						<div class="rhythm-item">
-							<span class="time">11:00</span>
-							<span class="activity">Mittagessen</span>
-						</div>
-						<div class="rhythm-item">
-							<span class="time">12:00</span>
-							<span class="activity">Ruhezeit</span>
-						</div>
-						<div class="rhythm-item">
-							<span class="time">14:30</span>
-							<span class="activity">Vesper</span>
-						</div>
-						<div class="rhythm-item">
-							<span class="activity">Danach Freispiel im Garten / Abholzeit</span>
-						</div>
-					</div>
-					<a href="/konzept" class="link-arrow">
-						Mehr über unser Konzept erfahren
-						<svg
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path d="M5 12h14" />
-							<path d="m12 5 7 7-7 7" />
-						</svg>
-					</a>
-				</div>
-				<div class="rhythm-image">
-					<div class="image-circle">
-						<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-							<!-- Clock circle -->
-							<circle cx="150" cy="150" r="140" fill="#F0F9FF" stroke="#8CC152" stroke-width="2" />
-							<!-- Clock hands -->
-							<line
-								x1="150"
-								y1="150"
-								x2="150"
-								y2="60"
-								stroke="#2D3436"
-								stroke-width="4"
-								stroke-linecap="round"
-							/>
-							<line
-								x1="150"
-								y1="150"
-								x2="200"
-								y2="150"
-								stroke="#636E72"
-								stroke-width="3"
-								stroke-linecap="round"
-							/>
-							<!-- Center dot -->
-							<circle cx="150" cy="150" r="8" fill="#2D3436" />
-							<!-- Activity icons around the clock -->
-						</svg>
-					</div>
-				</div>
-			</div>
+					{/each}
+				</dl>
+				<a href="/konzept" class="link-arrow">Mehr über unser Konzept erfahren →</a>
+			</ImageText>
 		</div>
 	</section>
 
-	<!-- Trust Section -->
+	<!-- Trust -->
 	<section class="home-section trust-section">
-		<div class="container">
-			<h2 class="section-title">Vertrauen durch Qualität</h2>
-			<div class="trust-grid">
-				<div class="trust-card">
-					<h3>Qualifizierte Betreuung</h3>
-					<p>Zertifizierte Tagesmutter mit langjähriger Erfahrung und regelmäßigen Fortbildungen</p>
-				</div>
-				<div class="trust-card">
-					<h3>Kleine Gruppe</h3>
-					<p>Maximal 5 Kinder ermöglichen individuelle Förderung und enge Bindungen</p>
-				</div>
-				<div class="trust-card">
-					<h3>Partnerschaft</h3>
-					<p>
-						Enge Zusammenarbeit mit Eltern und Kooperation mit der Kindertagespflege Lindenblatt
-					</p>
-				</div>
-				<div class="trust-card">
-					<h3>Bildungsplan</h3>
-					<p>
-						Ganzheitliche Förderung nach dem aktuellen Bildungsplan des Landes Brandenburg -
-						spielerisch im Alltag integriert
-					</p>
-				</div>
-			</div>
+		<div class="container trust-layout">
+			<h2 class="section-title text-left trust-heading">Vertrauen durch Qualität</h2>
+			<ol class="trust-list">
+				<li class="trust-item">
+					<span class="trust-index"><Icon name="book" size={28} /></span>
+					<div>
+						<h3>Qualifizierte Betreuung</h3>
+						<p>Zertifizierte Tagesmutter mit langjähriger Erfahrung und regelmäßigen Fortbildungen.</p>
+					</div>
+				</li>
+				<li class="trust-item">
+					<span class="trust-index"><Icon name="heart" size={28} /></span>
+					<div>
+						<h3>Kleine Gruppe</h3>
+						<p>Maximal 5 Kinder ermöglichen individuelle Förderung und enge Bindungen.</p>
+					</div>
+				</li>
+				<li class="trust-item">
+					<span class="trust-index"><Icon name="community" size={28} /></span>
+					<div>
+						<h3>Partnerschaft</h3>
+						<p>
+							Enge Zusammenarbeit mit Eltern und Kooperation mit der Kindertagespflege Lindenblatt.
+						</p>
+					</div>
+				</li>
+				<li class="trust-item">
+					<span class="trust-index"><Icon name="seed" size={28} /></span>
+					<div>
+						<h3>Bildungsplan</h3>
+						<p>
+							Ganzheitliche Förderung nach dem aktuellen Bildungsplan des Landes Brandenburg –
+							spielerisch im Alltag integriert.
+						</p>
+					</div>
+				</li>
+			</ol>
 		</div>
 	</section>
 
-	<!-- CTA Section -->
+	<!-- CTA -->
 	<section class="home-section cta-section">
 		<div class="container">
 			<div class="cta-content">
 				<h2>Bereit für einen Besuch im Hummelgarten?</h2>
 				<p>
-					Lernt uns bei einem unverbindlichen Kennenlerntermin kennen.<br />Ich freue mich auf euch
-					und euer Kind!
+					Lernen Sie uns bei einem unverbindlichen Kennenlerntermin kennen. Ich freue mich auf Sie
+					und Ihr Kind!
 				</p>
 				<div class="cta-actions">
-					<a href="/kontakt" class="btn-primary large">Termin vereinbaren</a>
-					<a href="/ueber-mich" class="btn-text">
-						Mehr über mich erfahren
-						<svg
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path d="M5 12h14" />
-							<path d="m12 5 7 7-7 7" />
-						</svg>
-					</a>
+					<a href="/kontakt" class="button">Termin vereinbaren</a>
+					<a href="/ueber-mich" class="cta-link">Mehr über mich erfahren →</a>
 				</div>
 			</div>
 		</div>
@@ -377,166 +280,116 @@
 	{/if}
 </div>
 
+<FloatingContact />
+
 <style>
-	/* Page wrapper with creamy background */
 	.page-wrapper {
-		background-color: #fafafa;
-		min-height: 100vh;
+		background-color: var(--color-background);
 	}
 
-	/* Container */
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 2rem;
+		padding: 0 var(--space-lg);
 	}
 
-	/* Custom Hero */
+	/* Hero */
 	.custom-hero {
-		min-height: 90vh;
-		display: flex;
-		align-items: center;
-		background: transparent;
-		padding: 2rem 0;
-		overflow: hidden;
-		position: relative;
+		padding: var(--space-3xl) 0 var(--space-4xl);
 	}
 
 	.hero-content {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 2rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
+		gap: var(--space-3xl);
 		align-items: center;
 	}
 
+	.hero-text {
+		max-width: 480px;
+	}
+
+	.hero-eyebrow {
+		font-family: var(--font-secondary);
+		font-size: var(--text-sm);
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-terracotta);
+		margin-bottom: var(--space-sm);
+	}
+
 	.hero-title {
-		font-size: clamp(2.5rem, 5vw, 4rem);
-		font-weight: 300;
-		color: #2d3436;
-		line-height: 1.2;
-		margin-bottom: 1.5rem;
+		font-size: var(--text-4xl);
+		font-weight: 400;
+		color: var(--color-text-primary);
+		line-height: 1.15;
+		margin-bottom: var(--space-lg);
 	}
 
 	.hero-title .highlight {
 		font-family: 'CFPetersonPERSONAL', sans-serif;
-		color: #8cc152;
+		color: var(--color-accent);
 		font-weight: 400;
-		position: relative;
 	}
 
 	.hero-subtitle {
-		font-size: clamp(1.1rem, 2vw, 1.4rem);
-		color: #636e72;
+		font-size: var(--text-lg);
+		color: var(--color-text-secondary);
 		line-height: 1.6;
-		margin-bottom: 2rem;
+		margin-bottom: var(--space-xl);
+		max-width: 42ch;
 	}
 
 	.hero-features {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		margin-bottom: 2.5rem;
-	}
-
-	.feature-badge {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.5rem 1rem;
-		background: white;
-		border-radius: 20px;
-		font-size: 0.9rem;
-		color: #636e72;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-	}
-
-	.feature-badge svg {
-		color: #8cc152;
+		font-size: var(--text-sm);
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		color: var(--color-forest);
+		margin-bottom: var(--space-2xl);
 	}
 
 	.hero-actions {
 		display: flex;
-		gap: 1rem;
+		gap: var(--space-md);
 		flex-wrap: wrap;
-	}
-
-	.btn-primary,
-	.btn-secondary {
-		padding: 1rem 2rem;
-		border-radius: 50px;
-		text-decoration: none;
-		font-weight: 500;
-		transition: all 0.3s ease;
-		display: inline-block;
-	}
-
-	.btn-primary {
-		background: #8cc152;
-		color: white;
-		box-shadow: 0 4px 15px rgba(140, 193, 82, 0.3);
-	}
-
-	.btn-primary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(140, 193, 82, 0.4);
-	}
-
-	.btn-secondary {
-		background: white;
-		color: #8cc152;
-		border: 2px solid #8cc152;
-	}
-
-	.btn-secondary:hover {
-		background: #8cc152;
-		color: white;
-	}
-
-	.btn-primary.large {
-		padding: 1.2rem 2.5rem;
-		font-size: 1.1rem;
 	}
 
 	.hero-image {
 		position: relative;
-	}
-
-	.image-decoration {
-		position: absolute;
-		top: -50px;
-		right: -50px;
-		width: 300px;
-		height: 300px;
-		z-index: 0;
-	}
-
-	.hero-image-container {
-		position: relative;
-		z-index: 1;
-		background: white;
-		border-radius: 20px;
-		overflow: hidden;
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-		width: 100%;
-		height: 400px;
+		aspect-ratio: 6 / 5;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.hero-main-image {
+		position: relative;
+		z-index: 1;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		display: block;
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-xl);
+	}
+
+	.hero-accent-image {
+		position: absolute;
+		z-index: 2;
+		bottom: calc(-1 * var(--space-xl));
+		left: calc(-1 * var(--space-xl));
+		width: 42%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: var(--radius-lg);
+		border: 6px solid var(--color-background);
+		box-shadow: var(--shadow-lg);
 	}
 
 	/* Sections */
 	.home-section {
-		padding: 5rem 0;
+		padding: var(--space-4xl) 0;
 		opacity: 0;
-		transform: translateY(30px);
-		transition: all 0.8s ease-out;
+		transform: translateY(24px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 	}
 
 	.home-section.visible {
@@ -545,271 +398,307 @@
 	}
 
 	.section-title {
-		font-size: clamp(2rem, 4vw, 3rem);
-		font-weight: 300;
-		color: #2d3436;
+		font-size: var(--text-3xl);
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: var(--space-xl);
 	}
 
-	/* Gallery Section */
+	.section-title.text-left {
+		text-align: left;
+		margin-bottom: var(--space-md);
+	}
+
+	.section-eyebrow {
+		font-size: var(--text-sm);
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-terracotta);
+		margin-bottom: var(--space-sm);
+	}
+
+	/* Gallery */
 	.gallery-section {
-		background: white;
-		padding: 4rem 0;
+		background: var(--color-surface);
 	}
 
 	.section-subtitle {
 		text-align: center;
-		font-size: 1.2rem;
-		color: #636e72;
-		margin-top: -1.5rem;
-		margin-bottom: 3rem;
-		font-weight: 300;
+		font-size: var(--text-lg);
+		color: var(--color-text-secondary);
+		margin-top: calc(-1 * var(--space-md));
+		margin-bottom: var(--space-2xl);
 	}
 
-	/* Features Section */
+	/* Features */
 	.features-section {
-		background: #fafafa;
+		background: var(--color-background);
+	}
+
+	.features-layout {
+		display: grid;
+		grid-template-columns: 0.8fr 1.2fr;
+		gap: var(--space-3xl);
+		align-items: start;
+	}
+
+	.features-heading {
+		position: sticky;
+		top: calc(var(--space-4xl) + var(--space-lg));
+	}
+
+	.features-intro {
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+		max-width: 32ch;
 	}
 
 	.features-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-xl) var(--space-2xl);
 	}
 
-	.feature-card {
-		background: white;
-		padding: 2.5rem;
-		border-radius: 20px;
-		text-align: center;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-	}
-
-	.feature-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-	}
-
-	.feature-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-		filter: grayscale(20%);
-	}
-
-	.feature-card h3 {
-		font-size: 1.4rem;
-		font-weight: 400;
-		color: #2d3436;
-		margin-bottom: 1rem;
-	}
-
-	.feature-card p {
-		color: #636e72;
-		line-height: 1.6;
-	}
-
-	/* Rhythm Section */
+	/* Rhythm */
 	.rhythm-section {
-		background: white;
+		background: var(--color-surface);
 	}
 
-	.rhythm-content {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
-		align-items: center;
-	}
-
-	.rhythm-text h2 {
-		font-size: clamp(2rem, 4vw, 2.5rem);
-		font-weight: 300;
-		color: #2d3436;
-		margin-bottom: 1rem;
+	.rhythm-title {
+		font-size: var(--text-2xl);
 	}
 
 	.rhythm-intro {
-		font-size: 1.2rem;
-		color: #636e72;
-		margin-bottom: 2rem;
-		line-height: 1.6;
+		font-size: var(--text-lg);
+		color: var(--color-text-secondary);
+		margin-bottom: var(--space-xl);
 	}
 
-	.rhythm-highlights {
-		background: #f8f9fa;
-		padding: 2rem;
-		border-radius: 20px;
-		margin-bottom: 2rem;
+	.rhythm-list {
+		margin: 0 0 var(--space-xl);
+		display: flex;
+		flex-direction: column;
 	}
 
 	.rhythm-item {
-		display: flex;
-		align-items: center;
-		gap: 1.5rem;
-		padding: 1rem 0;
-		border-bottom: 1px solid #e9ecef;
+		display: grid;
+		grid-template-columns: 5rem 1fr;
+		gap: var(--space-lg);
+		padding: var(--space-sm) 0;
+		border-bottom: 1px solid var(--color-sand);
 	}
 
 	.rhythm-item:last-child {
 		border-bottom: none;
 	}
 
-	.time {
-		font-weight: 500;
-		color: #8cc152;
-		font-size: 1.1rem;
-		min-width: 60px;
+	.rhythm-time {
+		font-weight: 600;
+		color: var(--color-accent);
+		margin: 0;
 	}
 
-	.activity {
-		color: #636e72;
-		font-size: 1.1rem;
+	.rhythm-time--muted {
+		font-weight: 400;
+		font-style: italic;
+		color: var(--color-text-secondary);
+	}
+
+	.rhythm-activity {
+		margin: 0;
+		color: var(--color-text-secondary);
 	}
 
 	.link-arrow {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: #8cc152;
-		text-decoration: none;
-		font-weight: 500;
-		transition: gap 0.3s ease;
+		font-weight: 600;
+		color: var(--color-accent);
 	}
 
-	.link-arrow:hover {
-		gap: 1rem;
-	}
-
-	.image-circle {
-		background: white;
-		border-radius: 50%;
-		padding: 2rem;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-	}
-
-	/* Trust Section */
+	/* Trust */
 	.trust-section {
-		background: #f0f9ff;
+		background: var(--color-sand);
 	}
 
-	.trust-grid {
+	.trust-layout {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
+		grid-template-columns: 0.7fr 1.3fr;
+		gap: var(--space-3xl);
+		align-items: start;
 	}
 
-	.trust-card {
-		text-align: center;
-		padding: 2rem;
+	.trust-heading {
+		position: sticky;
+		top: calc(var(--space-4xl) + var(--space-lg));
 	}
 
-	.trust-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
+	.trust-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
-	.trust-card h3 {
-		font-size: 1.3rem;
-		font-weight: 400;
-		color: #2d3436;
-		margin-bottom: 0.5rem;
+	.trust-item {
+		display: grid;
+		grid-template-columns: 3.5rem 1fr;
+		gap: var(--space-lg);
+		padding: var(--space-lg) 0;
+		border-bottom: 1px solid rgba(62, 62, 60, 0.12);
 	}
 
-	.trust-card p {
-		color: #636e72;
-		line-height: 1.6;
+	.trust-item:first-child {
+		padding-top: 0;
 	}
 
-	/* CTA Section */
+	.trust-item:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.trust-index {
+		font-family: var(--font-primary);
+		font-size: var(--text-2xl);
+		color: var(--color-terracotta);
+		line-height: 1;
+	}
+
+	.trust-item h3 {
+		font-size: var(--text-xl);
+		margin-bottom: var(--space-sm);
+	}
+
+	.trust-item p {
+		color: var(--color-text-secondary);
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	/* CTA */
 	.cta-section {
-		background: linear-gradient(135deg, #8cc152 0%, #6fa73d 100%);
-		color: white;
+		background: var(--color-forest);
+	}
+
+	.cta-content {
 		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
 	}
 
 	.cta-content h2 {
-		font-size: clamp(2rem, 4vw, 2.5rem);
-		font-weight: 300;
-		margin-bottom: 1rem;
+		color: var(--color-warm-white);
+		font-size: var(--text-3xl);
+		margin-bottom: var(--space-md);
 	}
 
 	.cta-content p {
-		font-size: 1.2rem;
+		color: var(--color-sand);
+		font-size: var(--text-lg);
 		line-height: 1.6;
-		margin-bottom: 2.5rem;
-		opacity: 0.95;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.cta-actions {
 		display: flex;
-		gap: 2rem;
+		gap: var(--space-xl);
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 	}
 
-	.cta-section .btn-primary {
-		background: white;
-		color: #8cc152;
+	.cta-section .button {
+		background-color: var(--color-honey);
+		color: var(--color-charcoal);
 	}
 
-	.cta-section .btn-primary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+	.cta-section .button:hover {
+		background-color: var(--color-warm-white);
 	}
 
-	.btn-text {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: white;
-		text-decoration: none;
-		font-weight: 500;
-		transition: gap 0.3s ease;
-	}
-
-	.btn-text:hover {
-		gap: 1rem;
+	.cta-link {
+		color: var(--color-warm-white);
+		font-weight: 600;
+		text-decoration: underline;
 	}
 
 	/* Responsive */
-	@media (max-width: 768px) {
-		.hero-content,
-		.rhythm-content {
+	@media (max-width: 968px) {
+		.hero-content {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: var(--space-2xl);
+		}
+
+		.hero-text {
+			max-width: none;
 		}
 
 		.hero-image {
 			order: -1;
-			max-width: 400px;
-			margin: 0 auto;
+			aspect-ratio: 4 / 3;
+			margin-bottom: var(--space-xl);
+		}
+	}
+
+	@media (max-width: 968px) {
+		.features-layout,
+		.trust-layout {
+			grid-template-columns: 1fr;
+			gap: var(--space-xl);
 		}
 
-		.image-decoration {
-			display: none;
+		.features-heading,
+		.trust-heading {
+			position: static;
 		}
 
-		.hero-features {
-			justify-content: center;
+		.features-grid {
+			grid-template-columns: 1fr;
 		}
+	}
 
+	@media (max-width: 768px) {
+		.hero-features,
 		.hero-actions {
 			justify-content: center;
 		}
 
-		.rhythm-image {
-			max-width: 300px;
-			margin: 0 auto;
+		.hero-text {
+			text-align: center;
+		}
+
+		.hero-subtitle {
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		.home-section {
-			padding: 3rem 0;
+			padding: var(--space-3xl) 0;
 		}
 
 		.cta-actions {
 			flex-direction: column;
+		}
+
+		.section-title.text-left {
+			text-align: center;
+		}
+
+		.section-eyebrow {
+			text-align: center;
+		}
+
+		.features-intro {
+			max-width: none;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.trust-item {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.trust-index {
+			margin: 0 auto;
 		}
 	}
 </style>

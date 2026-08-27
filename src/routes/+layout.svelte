@@ -23,9 +23,11 @@
 	{/if}
 </svelte:head>
 
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
 <Header />
 
-<main>
+<main id="main-content">
 	<slot />
 </main>
 

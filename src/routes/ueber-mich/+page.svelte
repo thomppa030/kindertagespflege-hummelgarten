@@ -32,10 +32,7 @@
 			{#if aboutData.profile_image?.url}
 				<PrismicImage field={aboutData.profile_image} />
 			{:else}
-				<img
-					src="https://via.placeholder.com/400x400/e8f4f8/5a6c7d?text=Portrait"
-					alt="Über mich"
-				/>
+				<img src="/Hummel.svg" alt="Kindertagespflege Hummelgarten Logo" class="fallback-image" />
 			{/if}
 		</div>
 	</div>
@@ -52,29 +49,57 @@
 				<div class="lead">
 					<PrismicRichText field={aboutData.lead_text} />
 				</div>
+			{:else}
+				<p class="lead-text">
+					Ich bin Ihre Tagesmutter im Hummelgarten – seit über zehn Jahren begleite ich Kinder in
+					den ersten, prägendsten Jahren ihres Lebens.
+				</p>
 			{/if}
+
 			{#if aboutData.content}
 				<div class="content-area">
 					<PrismicRichText field={aboutData.content} />
 				</div>
 			{:else}
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae
-					vestibulum vestibulum. Cras porttitor metus justo, ut gravida velit lacinia sit amet.
-				</p>
+				<!--
+					Placeholder biography — replace with the real story once confirmed.
+					Details below (year founded, qualifications, jurisdiction) are drafted
+					examples, not verified facts about this business.
+				-->
+				<div class="content-area">
+					<p>
+						Nach meiner Ausbildung zur staatlich anerkannten Tagespflegeperson und mehreren Jahren
+						Erfahrung in einer Kindertagesstätte habe ich mich entschieden, Kinder in einem
+						kleineren, familiäreren Rahmen zu betreuen. Seit 2015 führe ich die Kindertagespflege
+						Hummelgarten in meinem eigenen Zuhause in Löwenberger Land.
+					</p>
 
-				<p>
-					Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-					architecto beatae vitae dicta sunt explicabo.
-				</p>
+					<p>
+						Was mich antreibt, ist die Überzeugung, dass Kinder am besten lernen, wenn sie sich
+						sicher und geborgen fühlen – und wenn sie draußen sein können, in der Natur, mit Tieren,
+						mit Erde unter den Fingernägeln.
+					</p>
 
-				<h2>Meine Philosophie</h2>
-				<p>
-					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-					voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-					cupiditate non provident.
-				</p>
+					<h2>Meine Philosophie</h2>
+					<p>
+						Jedes Kind hat sein eigenes Tempo. In meiner Kindertagespflege begleite ich maximal
+						fünf Kinder gleichzeitig, damit ich wirklich Zeit für jedes Einzelne habe – für seine
+						Fragen, seine Sorgen und seine kleinen und großen Entdeckungen.
+					</p>
+
+					<p>
+						Unser Garten, der angrenzende Wald und unsere Katze Kelly sind dabei feste Bestandteile
+						des Alltags. Kinder lernen hier nicht aus Büchern über Verantwortung und
+						Rücksichtnahme – sie erleben sie jeden Tag.
+					</p>
+
+					<h2>Qualifikationen</h2>
+					<p>
+						Staatlich anerkannte Tagespflegeperson, regelmäßige Fortbildungen in
+						Erster-Hilfe-am-Kind, Ernährung und früh­kindlicher Entwicklung, sowie laufende
+						Zusammenarbeit mit dem Jugendamt Oberhavel.
+					</p>
+				</div>
 			{/if}
 		</article>
 	</ContentSection>
@@ -82,7 +107,7 @@
 
 <style>
 	.about-page {
-		background-color: #fafafa;
+		background-color: var(--color-background);
 		min-height: 100vh;
 	}
 
@@ -90,8 +115,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 4rem 0 2rem;
-		background: linear-gradient(to bottom, #f0f7fa 0%, #fafafa 100%);
+		padding: var(--space-3xl) 0 var(--space-xl);
+		background: linear-gradient(to bottom, var(--color-sand), var(--color-background));
 	}
 
 	.circle-container {
@@ -99,59 +124,64 @@
 		height: 300px;
 		border-radius: 50%;
 		overflow: hidden;
-		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-		border: 5px solid white;
+		box-shadow: var(--shadow-lg);
+		border: 5px solid var(--color-warm-white);
 		position: relative;
-		background-color: white;
+		background-color: var(--color-warm-white);
 	}
 
-	.circle-container img {
+	.circle-container :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		display: block;
 	}
 
+	.fallback-image {
+		padding: var(--space-2xl);
+		object-fit: contain;
+	}
+
 	.about-content {
 		max-width: 750px;
 		margin: 0 auto;
-		padding: 4rem 1rem;
+		padding: var(--space-3xl) var(--space-md);
 	}
 
 	.about-content :global(h1) {
-		font-size: 2.75rem;
-		color: #2c3e50;
-		margin-bottom: 2rem;
-		font-weight: 300;
+		font-size: var(--text-4xl);
+		margin-bottom: var(--space-xl);
 		text-align: center;
 		line-height: 1.2;
 	}
 
 	.about-content :global(h2) {
-		font-size: 1.75rem;
-		color: #34495e;
-		margin-top: 3rem;
-		margin-bottom: 1.5rem;
-		font-weight: 400;
+		font-size: var(--text-2xl);
+		color: var(--color-text-primary);
+		margin-top: var(--space-3xl);
+		margin-bottom: var(--space-lg);
 		line-height: 1.3;
 	}
 
 	.about-content :global(p) {
-		font-size: 1.125rem;
+		font-size: var(--text-lg);
 		line-height: 1.8;
-		color: #5a6c7d;
-		margin-bottom: 1.75rem;
-		text-align: justify;
-		hyphens: auto;
+		color: var(--color-text-secondary);
+		margin-bottom: var(--space-lg);
+		max-width: 65ch;
 	}
 
+	.lead-text,
 	.lead :global(p) {
-		font-size: 1.25rem;
+		font-size: var(--text-xl);
 		line-height: 1.7;
-		color: #4a5a6a;
-		margin-bottom: 2.5rem;
+		color: var(--color-text-primary);
+		margin-bottom: var(--space-2xl);
 		text-align: center;
-		font-weight: 300;
+		font-weight: 500;
+		max-width: 55ch;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.content-area :global(h2:first-child) {
@@ -160,7 +190,7 @@
 
 	@media (max-width: 768px) {
 		.circular-image-section {
-			padding: 3rem 0 1.5rem;
+			padding: var(--space-2xl) 0 var(--space-lg);
 		}
 
 		.circle-container {
@@ -169,32 +199,33 @@
 		}
 
 		.about-content {
-			padding: 3rem 1rem;
+			padding: var(--space-2xl) var(--space-md);
 		}
 
 		.about-content :global(h1) {
-			font-size: 2.25rem;
+			font-size: var(--text-3xl);
 		}
 
 		.about-content :global(h2) {
-			font-size: 1.5rem;
-			margin-top: 2.5rem;
+			font-size: var(--text-xl);
+			margin-top: var(--space-2xl);
 		}
 
 		.about-content :global(p) {
-			font-size: 1.0625rem;
+			font-size: var(--text-base);
 			text-align: left;
 		}
 
+		.lead-text,
 		.lead :global(p) {
-			font-size: 1.125rem;
+			font-size: var(--text-lg);
 			text-align: left;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.circular-image-section {
-			padding: 2rem 0 1rem;
+			padding: var(--space-xl) 0 var(--space-md);
 		}
 
 		.circle-container {
@@ -204,11 +235,11 @@
 		}
 
 		.about-content :global(h1) {
-			font-size: 2rem;
+			font-size: var(--text-2xl);
 		}
 
 		.about-content :global(h2) {
-			font-size: 1.375rem;
+			font-size: var(--text-lg);
 		}
 	}
 </style>
