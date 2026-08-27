@@ -82,8 +82,8 @@
 			<h2 class="section-title">Naturerlebnis direkt vor der Haustür</h2>
 
 			<ImageText
-				imageUrl="/PicturesHome/optimized/20250514_094452.jpg"
-				imageAlt="Garten der Kindertagespflege Hummelgarten mit Gemüsebeeten und Spielbereich"
+				imageUrl="/PicturesHome/optimized/20250415_100440.jpg"
+				imageAlt="Kind pflanzt einen Setzling mit den Händen in unser Hochbeet"
 				title="Unser Garten als grünes Klassenzimmer"
 			>
 				<p>

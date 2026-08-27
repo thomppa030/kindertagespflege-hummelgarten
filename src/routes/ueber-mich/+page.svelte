@@ -70,7 +70,7 @@
 					<p>
 						Nach meiner Ausbildung zur staatlich anerkannten Tagespflegeperson und mehreren Jahren
 						Erfahrung in einer Kindertagesstätte habe ich mich entschieden, Kinder in einem
-						kleineren, familiäreren Rahmen zu betreuen. Seit 2015 führe ich die Kindertagespflege
+						kleineren, familiäreren Rahmen zu betreuen. Seit 2009 führe ich die Kindertagespflege
 						Hummelgarten in meinem eigenen Zuhause in Löwenberger Land.
 					</p>
 

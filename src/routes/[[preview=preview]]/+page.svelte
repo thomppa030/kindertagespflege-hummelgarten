@@ -21,37 +21,39 @@
 	// Structured data for homepage
 	const structuredData = [getOrganizationSchema(), getLocalBusinessSchema()];
 
-	// Gallery images
+	// Gallery images. Two source photos (cart, forest path) are near-duplicate
+	// burst shots — both are used since only 8 real photos exist in total and
+	// the hero already claims the one photo that shows the Tagesmutter herself.
 	const galleryImages = [
 		{
-			src: '/PicturesHome/optimized/20250415_100440.jpg',
-			alt: 'Zwei Kinder buddeln gemeinsam im Gartenbeet der Kindertagespflege Hummelgarten',
-			caption: 'Gemeinsam im Garten'
-		},
-		{
 			src: '/PicturesHome/optimized/20250429_100707.jpg',
-			alt: 'Kind bastelt mit bunter Pappe und Klebstoff am Basteltisch',
-			caption: 'Kreativzeit'
+			alt: 'Kind mit roter Mütze läuft über eine moosbewachsene Waldlichtung',
+			caption: 'Entdeckungstour'
 		},
 		{
 			src: '/PicturesHome/optimized/20250430_090229.jpg',
-			alt: 'Kind untersucht ein Blatt mit einer Becherlupe im Garten',
-			caption: 'Naturentdeckungen'
+			alt: 'Kinder sitzen im Bollerwagen und blicken einen Waldweg entlang',
+			caption: 'Ausflug in den Wald'
 		},
 		{
 			src: '/PicturesHome/optimized/20250430_090247.jpg',
-			alt: 'Kinder spielen gemeinsam mit Holzbausteinen im Wohnzimmer',
-			caption: 'Spielzeit drinnen'
+			alt: 'Kinder sitzen im Bollerwagen auf einer Waldlichtung',
+			caption: 'Unterwegs im Wald'
 		},
 		{
 			src: '/PicturesHome/optimized/20250514_094452.jpg',
-			alt: 'Tagesmutter liest zwei Kindern aus einem Bilderbuch vor',
-			caption: 'Lernen mit Freude'
+			alt: 'Kind mit roter Mütze hält einen Stock und erkundet den Waldboden',
+			caption: 'Naturerlebnis'
 		},
 		{
 			src: '/PicturesHome/optimized/20250514_094537(0).jpg',
-			alt: 'Kinder gießen Gemüsepflanzen im Hochbeet',
-			caption: 'Unser Garten'
+			alt: 'Kind streckt einen langen Stock in die Höhe zwischen Kiefernstämmen',
+			caption: 'Waldabenteuer'
+		},
+		{
+			src: '/PicturesHome/optimized/20250514_094803.jpg',
+			alt: 'Drei Kinder sitzen nebeneinander auf einem Baumstamm im Wald',
+			caption: 'Rast auf dem Baumstamm'
 		}
 	];
 
@@ -124,15 +126,15 @@
 				</div>
 				<div class="hero-image">
 					<img
-						src="/PicturesHome/optimized/20250514_094452.jpg"
-						alt="Tagesmutter liest zwei Kindern aus einem Bilderbuch vor"
+						src="/PicturesHome/optimized/IMG-20250429-WA0017.jpg"
+						alt="Tagesmutter sitzt mit drei Kindern auf einem Baumstamm im Wald und zeigt in die Baumkronen"
 						class="hero-main-image"
 						loading="eager"
 						fetchpriority="high"
 					/>
 					<img
-						src="/PicturesHome/optimized/20250430_090229.jpg"
-						alt="Kind untersucht ein Blatt mit einer Becherlupe im Garten"
+						src="/PicturesHome/optimized/20250415_100440.jpg"
+						alt="Kind pflanzt einen Setzling mit den Händen in unser Gartenbeet"
 						class="hero-accent-image"
 						loading="eager"
 					/>
@@ -189,8 +191,8 @@
 	<section class="home-section rhythm-section">
 		<div class="container">
 			<ImageText
-				imageUrl="/PicturesHome/optimized/20250430_090247.jpg"
-				imageAlt="Kinder spielen gemeinsam mit Holzbausteinen im Wohnzimmer"
+				imageUrl="/PicturesHome/optimized/20250429_100707.jpg"
+				imageAlt="Kind läuft mit einem Stock durch den lichten Wald"
 				reverse={true}
 			>
 				<h2 class="rhythm-title">Ein Tag bei uns</h2>
@@ -358,7 +360,7 @@
 	.hero-image {
 		position: relative;
 		aspect-ratio: 6 / 5;
-		margin-bottom: var(--space-2xl);
+		margin-top: var(--space-2xl);
 	}
 
 	.hero-main-image {
@@ -367,6 +369,10 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		/* Source photo is a tall portrait shot; the wide 6:5 hero box only
+		   crops vertically. Anchor to the top so the Tagesmutter's raised
+		   hand and the canopy stay in frame instead of being cut. */
+		object-position: 50% 0%;
 		border-radius: var(--radius-xl);
 		box-shadow: var(--shadow-xl);
 	}
@@ -374,7 +380,10 @@
 	.hero-accent-image {
 		position: absolute;
 		z-index: 2;
-		bottom: calc(-1 * var(--space-xl));
+		/* Top-left, not bottom-left: the main photo's bottom edge is where the
+		   Tagesmutter and all three children sit, so anchoring here instead
+		   overlaps only canopy/sky and keeps everyone in the main shot visible. */
+		top: calc(-1 * var(--space-xl));
 		left: calc(-1 * var(--space-xl));
 		width: 42%;
 		aspect-ratio: 4 / 3;
